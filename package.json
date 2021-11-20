@@ -4,7 +4,8 @@
   "description": "CS6314 WPL final project using MERN stack",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.6",
     "express": "^4.17.1",
     "monk": "^7.3.4"
   }
