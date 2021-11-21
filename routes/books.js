@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const db = require('../db');
+const db = require('../config/db');
 const collection = db.get('books');
 
 router.get('/', (req, res, next) => {

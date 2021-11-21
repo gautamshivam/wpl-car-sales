@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Books from './components/Books';
+import Login from './components/Login';
+import Register from './components/Register';
+import User from './components/User';
 
 function App() {
 
@@ -19,8 +22,11 @@ function App() {
 
   return (
     <div className="App">
-      Hello from Book Store
-      <Books books={books}/>
+      <h1>Hello from Book Store</h1>
+      {/* <Books books={books}/> */}
+      <Login/>
+      <Register/>
+      <User/>
     </div>
   );
 }
