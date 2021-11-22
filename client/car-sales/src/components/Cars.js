@@ -3,10 +3,10 @@ const Cars = (props) => {
     return (
         <div>
             {
-                props.books.map((book) => (
-                    <div key={book._id}>
-                        <h1>{book.name}</h1>
-                        <p><b>Author:</b> {book.author}</p>
+                props.cars.map((car) => (
+                    <div key={car._id}>
+                        <h1>{car.name}</h1>
+                        <p><b>Price:</b> {car.price}</p>
                     </div>
                 ))
             }

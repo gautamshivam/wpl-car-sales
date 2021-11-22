@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <h1>Hello from Used Car Sales</h1>
-      {/* <Cars books={books}/> */}
+      <Cars cars={cars}/>
       <Login/>
       <Register/>
       <User/>
