@@ -1,5 +1,5 @@
 
-const Books = (props) => {
+const Cars = (props) => {
     return (
         <div>
             {
@@ -14,4 +14,4 @@ const Books = (props) => {
     )
 }
 
-export default Books;
+export default Cars;

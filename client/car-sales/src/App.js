@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Books from './components/Books';
+import Cars from './components/Cars';
 import Login from './components/Login';
 import Register from './components/Register';
 import User from './components/User';
 
 function App() {
 
-  const [books, setBooks] = useState([]);
+  const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    fetch('/api/books').then((res) => res.json())
+    fetch('/api/cars').then((res) => res.json())
     .then((data) => {
       console.log(data);
-      setBooks(data);
+      setCars(data);
     })
     .catch((err) => {
       console.log(err);
@@ -22,8 +22,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Hello from Book Store</h1>
-      {/* <Books books={books}/> */}
+      <h1>Hello from Used Car Sales</h1>
+      {/* <Cars books={books}/> */}
       <Login/>
       <Register/>
       <User/>
