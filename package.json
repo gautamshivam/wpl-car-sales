@@ -1,18 +1,19 @@
 {
-  "name": "wpl-book-store",
+  "name": "wpl-car-sales",
   "version": "1.0.0",
   "description": "CS6314 WPL final project using MERN stack",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "start-client":"cd client/car-sales && npm run start"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tantuwaySourabh/wpl-book-store.git"
   },
   "keywords": [
-    "book",
+    "car sale",
     "store",
     "react",
     "node",

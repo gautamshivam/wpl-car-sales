@@ -11,7 +11,7 @@ const session = require('express-session')
 
 
 // routers
-const booksRouter = require('./routes/books');
+const carsRouter = require('./routes/cars');
 const authRouter = require('./routes/auth');
 
 var app = express();
@@ -31,7 +31,7 @@ require('./config/passportConfig')(passport);
 
 
 // attach router
-app.use('/api/books', booksRouter)
+app.use('/api/cars', carsRouter)
 app.use('/api/auth', authRouter)
 
 const PORT = process.env.PORT || 5000;
