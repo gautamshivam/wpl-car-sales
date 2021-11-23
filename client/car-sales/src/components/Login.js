@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
+import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import './Login.css'
+
 
 const Login = () => {
 
@@ -14,11 +18,15 @@ const Login = () => {
         }).then((res) => console.log(res))
     }
     return (
-        <div>
-            <h1>Login:</h1>
-            <input placeholder="username" onChange={e => setLogingUsername(e.target.value)}></input>
-            <input placeholder="password" onChange={e => setLogingPassword(e.target.value)}></input>
-            <button onClick={login}>Submit</button>
+        <div class="login-page">
+            <div class="form">
+                <form class="login-form">
+                    <input type="text" name="title" class="form-control" placeholder="username" onChange={e => setLogingUsername(e.target.value)}/>
+                    <input type="text" name="genre" class="form-control" placeholder="password" onChange={e => setLogingPassword(e.target.value)}/>
+                    <button onClick={login}>login</button>
+                    <p class="message">Not registered? <Link to="/register">Create an account</Link></p>
+                </form>
+            </div>
         </div>
     )
 }
