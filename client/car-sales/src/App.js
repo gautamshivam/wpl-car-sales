@@ -5,6 +5,8 @@ import Login from './components/Login';
 import Register from './components/Register';
 import User from './components/User';
 import Navbar from './components/Navbar/Navbar'
+import Details from './components/Details';
+import Favourites from './components/Favourites';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 function App() {
@@ -26,12 +28,13 @@ function App() {
     <Router>
       <div className="App">
           <Navbar/>
-          <h1>Hello from Used Car Sales</h1>
           <Routes>
             <Route path="/login" element={<Login/>} exact></Route>
             <Route path="/register" element={<Register/>} exact></Route>
             <Route path="/browse" element={<Cars cars={cars}/>} exact></Route>
             <Route path="/user" element={<User/>} exact></Route>
+            <Route path="/details" element={<Details/>} exact></Route>
+            <Route path="/favourites" element={<Favourites/>} exact></Route>
           </Routes>
       </div>
     </Router>

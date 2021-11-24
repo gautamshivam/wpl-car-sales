@@ -10,13 +10,13 @@ export const MenuItems = [
         cName: 'nav-links'
     },
     {
-        title: 'Login',
+        title: 'Login/Signup',
         url: '/login',
         cName: 'nav-links'
     },
     {
-        title: 'Cart',
-        url: '/cart',
+        title: 'Favourites',
+        url: '/favourites',
         cName: 'nav-links'
     },
     {
@@ -27,6 +27,16 @@ export const MenuItems = [
     {
         title: 'My Account',
         url: '/user',
+        cName: 'nav-links'
+    },
+    {
+        title: 'Details',
+        url: '/details',
+        cName: 'nav-links'
+    },
+    {
+        title: 'Add Product',
+        url: '/details',
         cName: 'nav-links'
     }
 ]

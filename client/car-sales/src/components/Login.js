@@ -23,7 +23,7 @@ const Login = () => {
                 <form class="login-form">
                     <input type="text" name="title" class="form-control" placeholder="username" onChange={e => setLogingUsername(e.target.value)}/>
                     <input type="text" name="genre" class="form-control" placeholder="password" onChange={e => setLogingPassword(e.target.value)}/>
-                    <button onClick={login}>login</button>
+                    <Button onClick={login}>login</Button>
                     <p class="message">Not registered? <Link to="/register">Create an account</Link></p>
                 </form>
             </div>

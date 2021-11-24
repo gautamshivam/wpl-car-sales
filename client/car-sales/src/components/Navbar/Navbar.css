@@ -5,7 +5,10 @@
     justify-content: left;
     align-items: center;
     font-size: 1.2rem;
+    position: relative;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24) inset;
 }
+
 
 .navbar-logo{
     color: #fff;
