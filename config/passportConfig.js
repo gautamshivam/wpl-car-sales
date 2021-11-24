@@ -8,7 +8,7 @@ module.exports = function(passport) {
         new localStrategy((username, pwd, done) => {
             collection.findOne({username:username}, (err, user) => {
                 if(err) throw err;
-                if(!user) return done(null, flase);
+                if(!user) return done(null, false);
                 bcrypt.compare(pwd, user.password, (err, result) => {
                     if(err) throw err;
                     if(result === true) {
