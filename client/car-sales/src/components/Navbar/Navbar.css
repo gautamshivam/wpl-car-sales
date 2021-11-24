@@ -1,25 +1,27 @@
 .NavbarItems{
     background: rgb(124, 160, 151);
-    height: 80px;
-    display: flex;
+    /* display: flex;
     justify-content: left;
     align-items: center;
     font-size: 1.2rem;
-    position: relative;
+    position: relative; */
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24) inset;
 }
 
 
 .navbar-logo{
     color: #fff;
+    font-size: 2rem;
+    margin-right: 25px;
 }
 
 .nav-menu{
-    display: grid;
-    grid-template-columns: repeat(6, auto);
+    display: flex;
+    /* grid-template-columns: repeat(7, auto); */
     grid-gap: 10px;
     list-style: none;
-    color: #D7D9D8
+    color: #D7D9D8;
+    align-items: center;
 }
 
 .nav-links{

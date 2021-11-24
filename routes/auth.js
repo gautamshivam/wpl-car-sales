@@ -4,6 +4,10 @@ const passport = require('passport');
 const db = require('../config/db');
 const collection = db.get('users');
 
+router.get('/logout', (req,res) => {
+    req.logout();
+    res.send("successfully logged out");
+})
 router.post('/login', (req, res, next) => {
    passport.authenticate("local", (err, user, info) => {
        if(err) throw err;
@@ -34,8 +38,5 @@ router.post('/register', (req, res, next)=> {
     })
 })
 
-router.get('/user', (req, res, next) => {
-    res.send(req.user);
-})
 
 module.exports = router;

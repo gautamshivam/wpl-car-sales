@@ -10,9 +10,10 @@ import {
   CardActions,
 } from "@mui/material";
 
-const Details = () => {
+const Details = (props) => {
   return (
     <div className="row">
+      {console.log(props)}
       <div className="col-md-2"></div>
       <div className="col-md-6">
         {/* <img className="img-fluid " src="./images/image1.jpg" alt="image1"/>  */}
@@ -33,7 +34,7 @@ const Details = () => {
                 Used
               </Typography>
               <Typography variant="h5" component="div">
-                2018 Tesla Model S 100D
+                {props.car.title}
               </Typography>
               <Typography sx={{ mb: 1.5, fontSize: 20 }} color="text.primary">
                 56,547 mi.
@@ -45,7 +46,7 @@ const Details = () => {
                 component="div"
               >
                 <Box fontWeight="bold" display="inline">
-                  $69,989
+                  ${props.car.price}
                 </Box>
               </Typography>
                 </div>
@@ -70,7 +71,7 @@ const Details = () => {
                 Used
               </Typography>
               <Typography variant="h5" component="div">
-                2018 Tesla Model S 100D
+                {props.car.title}
               </Typography>
               <Typography sx={{ mb: 1.5, fontSize: 20 }} color="text.primary">
                 56,547 mi.
@@ -82,7 +83,7 @@ const Details = () => {
                 component="div"
               >
                 <Box fontWeight="bold" display="inline">
-                  $69,989
+                  ${props.car.price}
                 </Box>
               </Typography>
             </CardContent>
@@ -105,7 +106,7 @@ const Details = () => {
                 Used
               </Typography>
               <Typography variant="h5" component="div">
-                2018 Tesla Model S 100D
+                {props.car.title}
               </Typography>
               <Typography sx={{ mb: 1.5, fontSize: 20 }} color="text.primary">
                 56,547 mi.
@@ -117,7 +118,7 @@ const Details = () => {
                 component="div"
               >
                 <Box fontWeight="bold" display="inline">
-                  $69,989
+                  ${props.car.price}
                 </Box>
               </Typography>
             </CardContent>
