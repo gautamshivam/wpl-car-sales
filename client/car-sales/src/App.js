@@ -7,6 +7,7 @@ import User from './components/User';
 import Navbar from './components/Navbar/Navbar'
 import Details from './components/Details';
 import Favourites from './components/Favourites';
+import AddItem from './components/AddItem'
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <Route path="/user" element={<User/>} exact></Route>
             <Route path="/details" element={<Details/>} exact></Route>
             <Route path="/favourites" element={<Favourites/>} exact></Route>
+            <Route path="/additem" element={<AddItem/>} exact></Route>
           </Routes>
       </div>
     </Router>

@@ -20,11 +20,6 @@ export const MenuItems = [
         cName: 'nav-links'
     },
     {
-        title: 'Wishlist',
-        url: '/wishlist',
-        cName: 'nav-links'
-    },
-    {
         title: 'My Account',
         url: '/user',
         cName: 'nav-links'
@@ -36,7 +31,7 @@ export const MenuItems = [
     },
     {
         title: 'Add Product',
-        url: '/details',
+        url: '/additem',
         cName: 'nav-links'
     }
 ]
