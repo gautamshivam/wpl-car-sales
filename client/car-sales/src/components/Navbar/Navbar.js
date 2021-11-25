@@ -19,6 +19,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 
 const Navbar = () => {
@@ -42,6 +43,9 @@ const Navbar = () => {
     }
     const navigateToFavorites = () => {
         navigate('/favourites');
+    }
+    const navigateToAdd = () => {
+        navigate('/additem');
     }
 
     const onLogout = () => {
@@ -135,6 +139,14 @@ const Navbar = () => {
                                     </ListItemIcon>
                                     Logout
                                 </MenuItem>
+                                <Divider />
+                                {
+                                    user.username.toLowerCase() === 'shivam' &&
+                                    <MenuItem onClick={navigateToAdd}>
+                                        <AddCircleIcon/> Add Car
+                                    </MenuItem>
+                                }
+                                
                             </Menu>
                         </>
                     }   

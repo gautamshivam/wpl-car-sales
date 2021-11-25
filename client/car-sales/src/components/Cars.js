@@ -27,7 +27,7 @@ const Cars = (props) => {
           <div className="row mt-4">
             {props.cars.map((car) => (
               <div className="col-md-6 p-3">
-                <CarItem key={car._id} car={car} onFavClick={onFavClick} onCarClick={props.onCarClick} />
+                <CarItem key={car._id} car={car} onFavClick={onFavClick} onCarClick={props.onCarClick} onCarEditClick={props.onCarEditClick}/>
               </div>
             ))}
           </div>

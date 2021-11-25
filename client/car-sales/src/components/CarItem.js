@@ -6,11 +6,11 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import ShareIcon from '@mui/icons-material/Share';
 import IconButton from '@mui/material/IconButton';
 import Axios from 'axios';
 import { UserContext } from "./UserProvider";
 import { useNavigate } from 'react-router-dom';
+import EditIcon from '@mui/icons-material/Edit';
 
 const CarItem = (props) => {
   const {user, setUser, fav, setFav} = useContext(UserContext);
@@ -69,6 +69,10 @@ const CarItem = (props) => {
     props.onCarClick(props.car, isFavorite)
   }
 
+  const onCardEditClick = () => {
+    props.onCarEditClick(props.car)
+  }
+
   return (
     <Card>
       <CardMedia
@@ -99,6 +103,12 @@ const CarItem = (props) => {
           </IconButton> : 
           <IconButton aria-label="add to favorites" onClick={onToggleFavorite}>
             <FavoriteIcon color="warning" />
+          </IconButton>
+        }
+        {
+          user && user.username === 'shivam' && 
+          <IconButton aria-label="edit this car" onClick={onCardEditClick}>
+            <EditIcon color="inherit" />
           </IconButton>
         }
       </CardActions>

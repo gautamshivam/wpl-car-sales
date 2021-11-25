@@ -1,10 +1,48 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 
-const EditItem = () => {
+
+const EditItem = (props) => {
     const formRef = React.createRef();
-    const handleSubmit = () => {
+    let navigate = useNavigate();
 
+    const handleSubmit = () => {
+        console.log(formRef.current.images.files);
+        const images = [];
+        for(let i=0; i < formRef.current.images.files.length; i++) {
+            images.push(formRef.current.images.files.item(i).name);
+        }
+        
+        console.log(images);
+        axios.put('/api/cars/edit', {
+            title:formRef.current.title.value,
+            images:images,
+            make:formRef.current.make.value,
+            model:formRef.current.model.value,
+            price:formRef.current.price.value,
+            condition:formRef.current.condition.value,
+            mileage:formRef.current.mileage.value,
+            bodyType:formRef.current.bodyType.value,
+            transmission:formRef.current.transmission.value,
+            year:formRef.current.year.value,
+            colorExt:formRef.current.colorExt.value,
+            colorInt:formRef.current.colorInt.value,
+            fuelType:formRef.current.fuelType.value,
+            noOfOwners:formRef.current.noOfOwners.value,
+            features:formRef.current.features.value,
+            isAvailable:true
+
+        }).then((res) => {
+            console.log('update car');
+            navigate('/browse');
+        })
     }
+    useEffect(() => {
+        formRef.current.title.value = props.car.title;
+        formRef.current.make.value = props.car.make;
+        formRef.current.bodyType.value = props.car.bodyType;
+    }, [])
     return (
         <div className="row">
             
@@ -13,8 +51,8 @@ const EditItem = () => {
         <div className="col-md-6">
         <h1> Edit Car Record </h1>
             <form ref={formRef}>
-            <input type="text" name="title" className="form-control" placeholder="title" value="2018 Tesla Model S 100D" />
-            <input type="text" name="make" className="form-control" placeholder="make" value="Tesla" />
+            <input type="text" name="title" className="form-control" placeholder="title" />
+            <input type="text" name="make" className="form-control" placeholder="make"  />
             <input type="text" name="model" className="form-control" placeholder="model" value="model S"/>
             <input type="text" name="price" className="form-control" placeholder="price" value="69989"/>
             <input type="text" name="condition" className="form-control" placeholder="condtition" value="used"/>
@@ -29,7 +67,7 @@ const EditItem = () => {
             <input type="file" name="images" accept="image/png, image/gif, image/jpeg" className="form-control" placeholder="image" multiple/>
             <textarea name="features" className="form-control" placeholder="features" value="Alloy Wheels, Front dual zone A/C,Air Conditioning, Overhead airbag,ABS brakes, Heated Seats, Navigation System, Bluetooth, Premium Sound System, Remote keyless entry, Navigation System, Leather Seats, Memory Seat, Exterior Parking Camera Rear, Rain sensing wipers, Auto-leveling suspension, Power steering, Self-Parking, Enhanced Autopilot"></textarea>
             <button type="button" onClick={handleSubmit} className="btn btn-info">
-                Save
+                Update
             </button>
             </form>
         <a href="/browse">Cancel</a>
