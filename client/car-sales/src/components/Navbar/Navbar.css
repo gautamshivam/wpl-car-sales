@@ -1,16 +1,26 @@
 .NavbarItems{
     background: rgb(124, 160, 151);
+<<<<<<< HEAD
     /* display: flex;
     justify-content: left;
     align-items: center;
     font-size: 1.2rem;
     position: relative; */
+=======
+    height: 80px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 1.2rem;
+    position: relative;
+>>>>>>> 7ff7c655e4fd9f897ec9ea7c904ec00b7e5e9ef1
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24) inset;
 }
 
 
 .navbar-logo{
     color: #fff;
+<<<<<<< HEAD
     font-size: 2rem;
     margin-right: 25px;
 }
@@ -22,6 +32,16 @@
     list-style: none;
     color: #D7D9D8;
     align-items: center;
+=======
+}
+
+.nav-menu{
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    grid-gap: 10px;
+    list-style: none;
+    color: #D7D9D8
+>>>>>>> 7ff7c655e4fd9f897ec9ea7c904ec00b7e5e9ef1
 }
 
 .nav-links{
