@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/Navbar'
 import Details from './components/Details';
 import Favourites from './components/Favourites';
 import AddItem from './components/AddItem'
-import EditItem from './components/AddItem'
+import EditItem from './components/EditItem'
 import {Route, Routes} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import Purchased from './components/Purchased';
@@ -17,6 +17,7 @@ import { UserContext } from "./components/UserProvider";
 function App() {
 
   const [cars, setCars] = useState([]);
+  const [filters, setFilters] = useState({makeList:[], bodyTypeList:[], fuelTypeList:[]});
   const [user, setUser] = useState({});
 
   const [clickedCar, setClickedCar] = useState(null);
@@ -31,6 +32,11 @@ function App() {
     .then((data) => {
       console.log(data);
       setCars(data);
+      setFilters({
+        makeList: data.map(item => item.make),
+        bodyTypeList: data.map(item => item.bodyType),
+        fuelTypeList: data.map(item => item.fuelType),
+      })
     })
     .catch((err) => {
       console.log(err);
@@ -41,7 +47,7 @@ function App() {
     fetch('/api/user').then((res) => res.json())
     .then((data) => {
       console.log(data);
-      if(data.favorites == "" || data.favorites == undefined)data.favorites = [];
+      if(data.favorites === "" || data.favorites === undefined)data.favorites = [];
       setUser(data);
     })
     .catch((err) => {
@@ -76,10 +82,10 @@ function App() {
     <div className="App">
     <Navbar/>
     <Routes>
-      <Route path="/"   element={<Cars cars={cars} onFavoriteUpdated={onFavoriteUpdated} onCarClick={onCarClick}/>} exact></Route>
+      <Route path="/"   element={<Cars cars={cars} filters={filters} onFavoriteUpdated={onFavoriteUpdated} onCarClick={onCarClick}/>} exact></Route>
       <Route path="/login" element={<Login/>} exact></Route>
       <Route path="/register" element={<Register/>} exact></Route>
-      <Route path="/browse" element={<Cars cars={cars} onFavoriteUpdated={onFavoriteUpdated} onCarClick={onCarClick}/>} exact></Route>
+      <Route path="/browse" element={<Cars cars={cars} filters={filters} onFavoriteUpdated={onFavoriteUpdated} onCarClick={onCarClick}/>} exact></Route>
       <Route path="/user" element={<User/>} exact></Route>
       <Route path="/details" element={<Details car={clickedCar} isFav={clickedCarFav} onPurchase={onPurchase}/>} exact></Route>              
       <Route path="/favourites" element={<Favourites isFavUpdated={isFavUpdated}/>} exact></Route>

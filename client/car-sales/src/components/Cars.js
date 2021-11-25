@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import TextField from '@mui/material/TextField';
-import FormControl from '@mui/material/FormControl';
 import CarItem from "./CarItem";
 import Searchbar from "./Searchbar/Searchbar"
 import Filters from "./Filter/Filters";
-import Axios from 'axios';
 
 const Cars = (props) => {
 
+  const onlyUnique = (value, index, self) => {
+    return self.indexOf(value) === index;
+  }
   const onFavClick = () => {
     props.onFavoriteUpdated();
   }
@@ -17,7 +17,9 @@ const Cars = (props) => {
       <div className="row">
         <div className="col-md-2"></div>
         <div className="col-md-2 mt-3">
-            <Filters/>
+            <Filters makeList={props.filters.makeList.filter(onlyUnique)} 
+            bodyTypes={props.filters.bodyTypeList.filter(onlyUnique)} 
+            fuelTypes={props.filters.fuelTypeList.filter(onlyUnique)}/>
         </div>
         <div className="col-md-6">
           <Searchbar/>
