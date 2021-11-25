@@ -8,8 +8,7 @@ import Navbar from './components/Navbar/Navbar'
 import Details from './components/Details';
 import Favourites from './components/Favourites';
 import AddItem from './components/AddItem'
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
-import UserProvider from './components/UserProvider';
+import {Route, Routes} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import Purchased from './components/Purchased';
 import { UserContext } from "./components/UserProvider";
