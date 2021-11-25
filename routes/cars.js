@@ -53,7 +53,8 @@ router.post('/add', (req, res, next) => {
     })
 });
 
-router.put('/edit', (req, res, next) => {
+router.put('/edit/:id', (req, res, next) => {
+    console.log('updating car..')
     collection.update({_id:req.params.id}, {$set: {
         title: req.body.title,
         images: req.body.images,
@@ -73,7 +74,9 @@ router.put('/edit', (req, res, next) => {
         isAvailable:req.body.isAvailable
         
     }}, (err, updatedCar) => {
+        if(err) throw err;
         res.send(updatedCar);
+        console.log('updated car..')
     })
 });
 

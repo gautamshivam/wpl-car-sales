@@ -16,9 +16,7 @@ const User = () => {
     }
     return (
         <div>
-            <h1>Get User</h1>
-            <button onClick={getUser}>Submit</button>
-            {user !== null && <div><h1>Welcome back: {user.username}</h1></div>}
+            {user !== null && <div><h1>Welcome {user.username}</h1></div>}
         </div>
     )
 }

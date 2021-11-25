@@ -6,11 +6,13 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import IconButton from '@mui/material/IconButton';
 import Axios from 'axios';
 import { UserContext } from "./UserProvider";
 import { useNavigate } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
+import Button from '@mui/material/Button';
+import './CarItem.css';
+
 
 const CarItem = (props) => {
   const {user, setUser, fav, setFav} = useContext(UserContext);
@@ -74,7 +76,7 @@ const CarItem = (props) => {
   }
 
   return (
-    <Card>
+    <Card className="carItem">
       <CardMedia
         component="img"
         alt="car"
@@ -98,18 +100,18 @@ const CarItem = (props) => {
       <CardActions>
         {
           !isFavorite ?
-          <IconButton aria-label="add to favorites" onClick={onToggleFavorite}>
+          <Button aria-label="add to favorites" variant='contained' onClick={onToggleFavorite}>
             <FavoriteIcon color="inherit" />
-          </IconButton> : 
-          <IconButton aria-label="add to favorites" onClick={onToggleFavorite}>
+          </Button> : 
+          <Button aria-label="add to favorites" variant='contained' onClick={onToggleFavorite}>
             <FavoriteIcon color="warning" />
-          </IconButton>
+          </Button>
         }
         {
           user && user.username === 'shivam' && 
-          <IconButton aria-label="edit this car" onClick={onCardEditClick}>
+          <Button aria-label="edit this car" variant='contained' onClick={onCardEditClick}>
             <EditIcon color="inherit" />
-          </IconButton>
+          </Button>
         }
       </CardActions>
     </Card>

@@ -1,0 +1,7 @@
+.carItem {
+    cursor: pointer;
+    transition: all 1s ease-in-out;
+}
+.carItem:hover {
+    transform: scale(1.1); 
+}

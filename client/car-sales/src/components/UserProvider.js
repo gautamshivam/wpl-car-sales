@@ -13,14 +13,14 @@ const UserProvider = ({children}) => {
         fetch('/api/user').then((res) => res.json())
         .then((data) => {
             console.log(data);
-            if(data.favorites == "" || data.favorites == undefined)data.favorites = [];
-            if(data.purchases == "" || data.purchases == undefined)data.purchases = [];
+            if(data.favorites === "" || data.favorites === undefined)data.favorites = [];
+            if(data.purchases === "" || data.purchases === undefined)data.purchases = [];
             setUser(data);
             setFav(data.favorites);
             setPurchases(data.purchases);
         })
         .catch((err) => {
-        console.log(err);
+            console.log(err);
         });
     },[])
 

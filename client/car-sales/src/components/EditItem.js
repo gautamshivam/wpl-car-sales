@@ -9,13 +9,14 @@ const EditItem = (props) => {
 
     const handleSubmit = () => {
         console.log(formRef.current.images.files);
-        const images = [];
+        var images = [];
         for(let i=0; i < formRef.current.images.files.length; i++) {
             images.push(formRef.current.images.files.item(i).name);
         }
+        if(images.length === 0) images = props.car.images;
         
         console.log(images);
-        axios.put('/api/cars/edit', {
+        axios.put('/api/cars/edit/'+props.car._id, {
             title:formRef.current.title.value,
             images:images,
             make:formRef.current.make.value,
@@ -32,9 +33,8 @@ const EditItem = (props) => {
             noOfOwners:formRef.current.noOfOwners.value,
             features:formRef.current.features.value,
             isAvailable:true
-
         }).then((res) => {
-            console.log('update car');
+            console.log('update car', res);
             navigate('/browse');
         })
     }

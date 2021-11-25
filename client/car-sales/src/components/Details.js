@@ -126,7 +126,7 @@ const Details = (props) => {
                 {props.car.title}
               </Typography>
               <Typography sx={{ mb: 1.5, fontSize: 20 }} color="text.primary">
-                56,547 mi.
+                {props.car.price} mi.
               </Typography>
               <Typography
                 sx={{ fontSize: 30 }}

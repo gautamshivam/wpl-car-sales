@@ -14,6 +14,9 @@ const Login = () => {
     const [loginUsername, setLogingUsername] = useState("");
     const [loginPassword, setLogingPassword] = useState("");
 
+    const [isError, setIsError] = useState(false);
+    const [error, setError] = useState("");
+
     let navigate = useNavigate();
 
     const getUser = () => {
@@ -27,23 +30,50 @@ const Login = () => {
         })
     }
 
+    const onInputChange = () => {
+        setIsError(false);
+        setError("");
+
+        if(loginUsername === null || loginUsername === "") {
+            setIsError(true);
+            setError("username is empty");
+        }
+        if(loginPassword === null || loginPassword === "") {
+            setIsError(true);
+            setError("password is empty");
+            return;
+        }
+    }
+
     const login = () => {
+        if(loginUsername === null || loginUsername === "") {
+            setIsError(true);
+            setError("username is empty");
+            return;
+        }
         Axios.post('/api/auth/login', {
             username: loginUsername,
             password: loginPassword
         }, {
             withCredentials: true
         }).then((res) => {
-            getUser();
-        })
+            if(res.status === 200 && res.data === "successfully authenticated") {
+                console.log(res);
+                getUser();
+            } else {
+                setIsError(true);
+                setError(res.data);
+            }
+        }).catch((err) => console.log('error', err.message));
     }
     return (
         <div class="login-page">
             <div class="form">
-                <form class="login-form">
-                    <input type="text" name="title" class="form-control" placeholder="username" onChange={e => setLogingUsername(e.target.value)}/>
-                    <input type="text" name="genre" class="form-control" placeholder="password" onChange={e => setLogingPassword(e.target.value)}/>
+                <form class="login-form" onChange={onInputChange}>
+                    <input type="text" name="title" class="form-control" placeholder="username" required={true} onChange={e => setLogingUsername(e.target.value)}/>
+                    <input type="text" name="genre" class="form-control" placeholder="password" required={true} onChange={e => setLogingPassword(e.target.value)}/>
                     <Button onClick={login}>login</Button>
+                    { isError && <p>Error: {error}</p>}
                     <p class="message">Not registered? <Link to="/register">Create an account</Link></p>
                 </form>
             </div>
