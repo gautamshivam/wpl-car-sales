@@ -1,5 +1,7 @@
 export const MenuItems = [
     {
+<<<<<<< HEAD
+=======
         title: 'Home',
         url: '/home',
         cName: 'nav-links'
@@ -30,6 +32,7 @@ export const MenuItems = [
         cName: 'nav-links'
     },
     {
+>>>>>>> 7ff7c655e4fd9f897ec9ea7c904ec00b7e5e9ef1
         title: 'Add Product',
         url: '/additem',
         cName: 'nav-links'
