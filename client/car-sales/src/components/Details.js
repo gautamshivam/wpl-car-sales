@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./Details.css";
 import Carousel from "./Carousel/Carousel";
+import Divider from '@mui/material/Divider';
 import {
   Box,
   Card,
@@ -12,6 +13,10 @@ import {
 import Axios from 'axios';
 import { UserContext } from "./UserProvider";
 import { useNavigate } from 'react-router-dom';
+
+const style = {
+  marginLeft: "auto"
+};
 
 const Details = (props) => {
   const {user, setUser, purchases, setPurchases,  fav, setFav} = useContext(UserContext);
@@ -93,8 +98,11 @@ const Details = (props) => {
           <Card variant="outlined" >
             <CardContent>
               <div className="row">
-              <div className="col-md-8">
-              <Typography variant="h5" component="div">
+              <div className="col-md-12">
+              <Typography fontWeight="bold" variant="h6" component="div">
+                Features: 
+              </Typography>
+              <Typography variant="h6" component="div">
                 {props.car.features}
               </Typography>
                 </div>
@@ -143,37 +151,47 @@ const Details = (props) => {
           </Card>
         </Box>
 
-        <Box sx={{ boxShadow: 3, mb: 2}}>
-          <Card variant="outlined" sx={{ height:"100%"}}>
+        <Box sx={{ boxShadow: 3, mb: 2 }}>
+          <Card variant="outlined" sx={{ height:"100%"}, style}>
             <CardContent>
-              <Typography variant="b1" component="div">
-                Make: {props.car.make}
+              
+              <Typography variant="h5" component="p">
+               Make: {props.car.make}
               </Typography>
-              <Typography variant="b1" component="div">
+              <Divider variant="inset"  />
+              <Typography variant="h5" component="div">
                 Model: {props.car.model}
               </Typography>
-              <Typography variant="b1" component="div">
+              <Divider variant="inset"  />
+              <Typography variant="h5" component="div">
                 Price: {props.car.price}
               </Typography>
-              <Typography variant="b1" component="div">
+              <Divider variant="inset"  />
+              <Typography variant="h5" component="div">
                 Condition: {props.car.condition}
               </Typography>
-              <Typography variant="b1" component="div">
+              <Divider variant="inset"  />
+              <Typography variant="h5" component="div">
                 Miles: {props.car.mileage}
               </Typography>
-              <Typography variant="b1" component="div">
+              <Divider variant="inset"  />
+              <Typography variant="h5" component="div">
                 Body Type: {props.car.bodyType}
               </Typography>
-              <Typography variant="b1" component="div">
+              <Divider variant="inset"  />
+              <Typography variant="h5" component="div">
                 Transmission: {props.car.transmission}
               </Typography>
-              <Typography variant="b1" component="div">
+              <Divider variant="inset"  />
+              <Typography variant="h5" component="div">
                 Year Mfg: {props.car.year}
               </Typography>
-              <Typography variant="b1" component="div">
+              <Divider variant="inset"  />
+              <Typography variant="h5" component="div">
                 Fuel Type: {props.car.fuelType}
               </Typography>
-              <Typography variant="b1" component="div">
+              <Divider variant="inset"  />
+              <Typography variant="h5" component="div">
                 No of Owners: {props.car.noOfOwners}
               </Typography>
             </CardContent>
