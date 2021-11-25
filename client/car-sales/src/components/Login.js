@@ -3,16 +3,13 @@ import Axios from 'axios'
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import './Login.css'
-<<<<<<< HEAD
 import { UserContext } from "./UserProvider";
 import { useNavigate } from 'react-router-dom';
-=======
->>>>>>> 7ff7c655e4fd9f897ec9ea7c904ec00b7e5e9ef1
 
 
 const Login = () => {
 
-    const {setUser, setFav} = useContext(UserContext);
+    const {setUser, setFav, setPurchases} = useContext(UserContext);
 
     const [loginUsername, setLogingUsername] = useState("");
     const [loginPassword, setLogingPassword] = useState("");
@@ -25,7 +22,7 @@ const Login = () => {
         }).then((res) => {
             setUser(res.data);
             setFav(res.data.favorites);
-            setFav(res.data.purchases);
+            setPurchases(res.data.purchases);
             navigate('/browse')
         })
     }
