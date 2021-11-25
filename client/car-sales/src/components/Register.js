@@ -3,6 +3,10 @@ import Axios from 'axios'
 import { Link } from 'react-router-dom';
 import './Register.css'
 import { useNavigate } from 'react-router-dom';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import Button from '@mui/material/Button';
+import { Typography } from '@mui/material';
+import ElectricCarIcon from '@mui/icons-material/ElectricCar';
 
 
 const Register = () => {
@@ -15,6 +19,10 @@ const Register = () => {
     //let navigate = useNavigate();
 
 
+    const onFormChange = () => {
+        setIsError(false);
+        setMsg("")
+    }
     const register = () => {
         Axios.post('/api/auth/register', {
             username: registerUsername,
@@ -37,11 +45,17 @@ const Register = () => {
     return (
         <div class="register-page">
             <div class="form">
-                <form class="Register-form">
+                <Typography marginTop='25px' marginBottom='50px'>
+                    <ElectricCarIcon style={{color:'#4CAF50', fontSize:'80px'}}/>
+                </Typography>
+                <form class="Register-form" onChange={onFormChange}>
                     <input type="text"  class="form-control" placeholder="username" onChange={e => setRegisterUsername(e.target.value)}/>
                     <input type="text"  class="form-control" placeholder="password" onChange={e => setRegisterPassword(e.target.value)}/>
-                    <button onClick={register} type="button">Create Account</button>
-                    { isError && <p>Error: {error}</p>}
+                    <Button onClick={register} 
+                    type="button" variant='contained' 
+                    startIcon={<PersonAddAltIcon/>}
+                    disabled={isError}>Create Account</Button>
+                    { isError && <Typography marginTop='25px' color='red' fontWeight='bold'>Error: {error}</Typography>}
                     { !isError  && <p> {msg}</p>}
                     <p class="message">Already registered? <Link to="/login">Sign in</Link></p>
                 </form>

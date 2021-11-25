@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent, Typography } from "@mui/material";
+import { Card, CardContent } from "@mui/material";
 import React from "react";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
@@ -8,7 +8,8 @@ import Checkbox from "@mui/material/Checkbox";
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Button from '@mui/material/Button';
-
+import FilterAlt from '@mui/icons-material/FilterAlt';
+import ClearIcon from '@mui/icons-material/Clear';
 
 const Filters = (props) => {
   const [selectedMake, setSelectedMake] = React.useState("");
@@ -109,8 +110,8 @@ const Filters = (props) => {
             </CardContent>
           </Card>
         </Box>
-        <Button variant="contained" onClick={applyFilters}>Apply Filters</Button>
-        <Button variant="contained" onClick={onClearFilter} className="mt-2">Clear Filters</Button>
+        <Button variant="contained" onClick={applyFilters} startIcon={<FilterAlt />}>Apply Filters</Button>
+        <Button variant="contained" onClick={onClearFilter} startIcon={<ClearIcon />} className="mt-2">Clear Filters</Button>
       </div>
     </>
   );

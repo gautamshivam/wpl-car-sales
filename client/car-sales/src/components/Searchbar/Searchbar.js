@@ -2,6 +2,7 @@
 import './Searchbar.css'
 import Button from '@mui/material/Button';
 import React from 'react';
+import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = (props) => {
     const ref = React.createRef();
@@ -20,7 +21,7 @@ const SearchBar = (props) => {
             </div>
             <div class="input-field third-wrap">
             </div>
-            <Button variant='contained' onClick={onQuery} type='button'>Search</Button>
+            <Button variant='contained' onClick={onQuery} type='button' startIcon={<SearchIcon />}>Search</Button>
             <select className="" onChange={onSortApplied}>
                 <option value="0">Relevence</option>
                 <option value="1">Low to high</option>

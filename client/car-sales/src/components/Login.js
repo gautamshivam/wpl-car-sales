@@ -5,6 +5,9 @@ import Button from '@mui/material/Button';
 import './Login.css'
 import { UserContext } from "./UserProvider";
 import { useNavigate } from 'react-router-dom';
+import LoginIcon from '@mui/icons-material/Login';
+import { Typography } from '@mui/material';
+import ElectricCarIcon from '@mui/icons-material/ElectricCar';
 
 
 const Login = () => {
@@ -33,22 +36,17 @@ const Login = () => {
     const onInputChange = () => {
         setIsError(false);
         setError("");
-
-        if(loginUsername === null || loginUsername === "") {
-            setIsError(true);
-            setError("username is empty");
-        }
-        if(loginPassword === null || loginPassword === "") {
-            setIsError(true);
-            setError("password is empty");
-            return;
-        }
     }
 
     const login = () => {
         if(loginUsername === null || loginUsername === "") {
             setIsError(true);
             setError("username is empty");
+            return;
+        }
+        if(loginPassword === null || loginPassword === "") {
+            setIsError(true);
+            setError("password is empty");
             return;
         }
         Axios.post('/api/auth/login', {
@@ -69,11 +67,14 @@ const Login = () => {
     return (
         <div class="login-page">
             <div class="form">
+                <Typography marginTop='25px' marginBottom='50px'>
+                    <ElectricCarIcon style={{color:'#4CAF50', fontSize:'80px'}}/>
+                </Typography>
                 <form class="login-form" onChange={onInputChange}>
                     <input type="text" name="title" class="form-control" placeholder="username" required={true} onChange={e => setLogingUsername(e.target.value)}/>
                     <input type="text" name="genre" class="form-control" placeholder="password" required={true} onChange={e => setLogingPassword(e.target.value)}/>
-                    <Button onClick={login}>login</Button>
-                    { isError && <p>Error: {error}</p>}
+                    <Button onClick={login} variant='contained' startIcon={<LoginIcon/>}>login</Button>
+                    { isError && <Typography marginTop='25px' color='red' fontWeight='bold'>Error: {error}</Typography>}
                     <p class="message">Not registered? <Link to="/register">Create an account</Link></p>
                 </form>
             </div>

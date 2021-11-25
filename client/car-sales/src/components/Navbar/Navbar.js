@@ -71,7 +71,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className="mt-3" style={{marginLeft:'150px', marginRight:'150px'}}>
-                        <ElectricCarIcon fontSize='large' color='white'/>
+                        <ElectricCarIcon style={{color:'#FFFFFF', fontSize:'40px'}}/>
                     </li>
                     {
                         user == null || user.username === undefined ?
