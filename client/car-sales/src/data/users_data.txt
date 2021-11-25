@@ -1,0 +1,7 @@
+{
+    "_id" : ObjectId("619c2e3cc3ad7337203c1654"),
+    "username" : "sourabh",
+    "password" : "$2a$10$D8M39825AOy0ho2wr6eY/eoMEauEe4QS5.yXXuLdxQqj1WzNAp9cO",
+    "favorites" : [],
+    "purchases" : []
+}
