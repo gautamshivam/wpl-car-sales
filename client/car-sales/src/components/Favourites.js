@@ -10,10 +10,25 @@ import {
   CardActions,
 } from "@mui/material";
 import { UserContext } from "./UserProvider";
+import Axios from 'axios';
 
 const Favourites = () => {
 
-  const {fav} = useContext(UserContext);
+  const {user, setUser, fav, setFav} = useContext(UserContext);
+
+
+  const onToggleFavorite = (id) => {
+    var newFav;
+    newFav = fav.filter((item) => item._id !== id)
+    setFav(newFav);
+    user.favorites = newFav;
+    setUser(user);
+    Axios.put('/api/user', {...user, favorites:newFav},{
+      withCredentials: true
+    }).then((resp) => {
+      console.log("favorite updated");
+    }).catch((err) => {console.log(err)});
+  }
 
   return (
     <div className="row mt-5">
@@ -58,7 +73,7 @@ const Favourites = () => {
                 </CardContent>
                 <CardActions>
                   <Button size="small">Go to buy</Button>
-                  <Button size="small">Remove from Favourites</Button>
+                  <Button size="small" onClick={() => onToggleFavorite(item._id) }>Remove from Favourites</Button>
                 </CardActions>
               </Card>
             </Box>

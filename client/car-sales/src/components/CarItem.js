@@ -20,15 +20,14 @@ const CarItem = (props) => {
   let navigate = useNavigate();
 
   const findIfFavorite = () => {
-    console.log('find favorite for',fav);
-    if(fav == "" || fav == undefined || user == undefined) {
+    if(fav === "" || fav === undefined || user === undefined) {
       setIsFavorite(false);
       return;
     }
     const foundFav = fav.find((item) => {
-      return item._id == props.car._id;
+      return item._id === props.car._id;
     });
-    if (foundFav == null || foundFav == "")  {
+    if (foundFav == null || foundFav === "")  {
       setIsFavorite(false);
       return;
     }
@@ -40,12 +39,12 @@ const CarItem = (props) => {
   }, [])
 
   const onToggleFavorite = () => {
-    if(user.username == "" || user.username == undefined) {
+    if(user.username === "" || user.username === undefined) {
       navigate('/login');
       return;
     }
     const alreadyFav = fav.find((item) => {
-      return item._id == props.car._id
+      return item._id === props.car._id
     })
     var newFav;
     if(alreadyFav == null) {
@@ -53,7 +52,7 @@ const CarItem = (props) => {
       console.log("currently not favorite -> marking favorite");
       setIsFavorite(true);
     } else {
-      newFav = fav.filter((item) => item._id != props.car._id)
+      newFav = fav.filter((item) => item._id !== props.car._id)
       console.log("already favorite -> removing from favorite");
       setIsFavorite(false);
     }

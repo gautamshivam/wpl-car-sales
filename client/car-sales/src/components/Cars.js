@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import CarItem from "./CarItem";
 import Searchbar from "./Searchbar/Searchbar"
 import Filters from "./Filter/Filters";
@@ -12,6 +12,19 @@ const Cars = (props) => {
     props.onFavoriteUpdated();
   }
 
+  const onFilterApplied = (filters) => {
+    props.onFilterApplied(filters)
+  }
+  const onClearFilter = () => {
+    props.onClearFilter();
+  }
+  const onSortApplied = (type) => {
+    props.onSortApplied(type);
+  }
+  const onQuery = (query) => {
+    props.onQuery(query)
+  }
+
   return (
     <div>
       <div className="row">
@@ -19,11 +32,12 @@ const Cars = (props) => {
         <div className="col-md-2 mt-3">
             <Filters makeList={props.filters.makeList.filter(onlyUnique)} 
             bodyTypes={props.filters.bodyTypeList.filter(onlyUnique)} 
-            fuelTypes={props.filters.fuelTypeList.filter(onlyUnique)}/>
+            fuelTypes={props.filters.fuelTypeList.filter(onlyUnique)}
+            onFilterApplied={onFilterApplied} onClearFilter={onClearFilter}/>
         </div>
-        <div className="col-md-6">
-          <Searchbar/>
-          
+        <div className="col-md-6"> 
+          <Searchbar onSortApplied={onSortApplied} onQuery={onQuery}/>
+ 
           <div className="row mt-4">
             {props.cars.map((car) => (
               <div className="col-md-6 p-3">

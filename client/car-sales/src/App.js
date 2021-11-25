@@ -17,6 +17,8 @@ import { UserContext } from "./components/UserProvider";
 function App() {
 
   const [cars, setCars] = useState([]);
+  const [filteredCars, setFilteredCars] = useState([]);
+  const [unSortedCars, setUnSortedCars] = useState([]);
   const [filters, setFilters] = useState({makeList:[], bodyTypeList:[], fuelTypeList:[]});
   const [user, setUser] = useState({});
 
@@ -32,10 +34,11 @@ function App() {
     .then((data) => {
       console.log(data);
       setCars(data);
+      setFilteredCars(data);
       setFilters({
-        makeList: data.map(item => item.make),
-        bodyTypeList: data.map(item => item.bodyType),
-        fuelTypeList: data.map(item => item.fuelType),
+        makeList: data.map(item => item.make).filter((item) => item !== ""),
+        bodyTypeList: data.map(item => item.bodyType).filter((item) => item !== ""),
+        fuelTypeList: data.map(item => item.fuelType).filter((item) => item !== ""),
       })
     })
     .catch((err) => {
@@ -78,18 +81,83 @@ function App() {
     setisFavUpdated(!isFavUpdated);
     getUser();
   }
+
+  const onFilterApplied = (filters) => {
+    console.log('filters apply', filters);
+    let filteredList = cars;
+    if(filters.make !== "")filteredList = cars.filter((car) => car.make === filters.make);
+    if(filters.body !== "")filteredList = filteredList.filter((car) => car.bodyType === filters.body);
+    if(filters.fuelTypes.length > 0)filteredList = filteredList.filter((car) => filters.fuelTypes.includes(car.fuelType));
+    setFilteredCars(filteredList)
+  }
+  const onClearFilter = () => {
+    setFilteredCars(cars);
+  }
+
+  const onSortApplied = (type) => {
+    console.log('sorting type:',type);
+    switch(type) {
+      case "0": setFilteredCars(unSortedCars);break;
+      case "1": {
+        let sortedList = [...filteredCars].sort((a,b) => parseInt(a.price) > parseInt(b.price) ? 1 : -1 );
+        console.log(sortedList);
+        setUnSortedCars(filteredCars);
+        setFilteredCars(sortedList);
+        break;
+      }
+      case "2": {
+        let sortedList = [...filteredCars].sort((a,b) => parseInt(a.price) < parseInt(b.price) ? 1 : -1);
+        console.log(sortedList);
+        setUnSortedCars(filteredCars);
+        setFilteredCars(sortedList);
+        break;
+      }
+      default: setFilteredCars(unSortedCars);break;
+    }
+  }
+  const onQuery = (query) => {
+    console.log('search by title:',query);
+    let filteredList = cars;
+    filteredList = filteredList.filter((car) => car.title.toLowerCase().includes(query.toLowerCase()));
+    console.log(filteredList);
+    setFilteredCars(filteredList)
+  }
+
   const onPurchase = () => {
     getCars();
   }
+
 
   return (
     <div className="App">
     <Navbar/>
     <Routes>
-      <Route path="/"   element={<Cars cars={cars} filters={filters} onFavoriteUpdated={onFavoriteUpdated} onCarClick={onCarClick} onCarEditClick={onCarEditClick}/>} exact></Route>
+      <Route path="/"   element={
+      <Cars cars={filteredCars} 
+      onQuery={onQuery}
+      onSortApplied={onSortApplied} 
+      onClearFilter={onClearFilter} 
+      filters={filters} 
+      onFilterApplied={onFilterApplied} 
+      onFavoriteUpdated={onFavoriteUpdated} 
+      onCarClick={onCarClick} 
+      onCarEditClick={onCarEditClick}/>} exact></Route>
+
       <Route path="/login" element={<Login/>} exact></Route>
+
       <Route path="/register" element={<Register/>} exact></Route>
-      <Route path="/browse" element={<Cars cars={cars} filters={filters} onFavoriteUpdated={onFavoriteUpdated} onCarClick={onCarClick} onCarEditClick={onCarEditClick}/>} exact></Route>
+      
+      <Route path="/browse" element={
+      <Cars cars={filteredCars} 
+      onQuery={onQuery}
+      onSortApplied={onSortApplied}  
+      onClearFilter={onClearFilter} 
+      filters={filters} 
+      onFilterApplied={onFilterApplied} 
+      onFavoriteUpdated={onFavoriteUpdated} 
+      onCarClick={onCarClick} 
+      onCarEditClick={onCarEditClick}/>} exact></Route>
+
       <Route path="/user" element={<User/>} exact></Route>
       <Route path="/details" element={<Details car={clickedCar} isFav={clickedCarFav} onPurchase={onPurchase}/>} exact></Route>              
       <Route path="/favourites" element={<Favourites isFavUpdated={isFavUpdated}/>} exact></Route>

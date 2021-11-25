@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent } from "@mui/material";
+import { Card, CardActions, CardContent, Typography } from "@mui/material";
 import React from "react";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
@@ -11,10 +11,36 @@ import Button from '@mui/material/Button';
 
 
 const Filters = (props) => {
-  const [value, setValue] = React.useState([20, 37]);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
+  const [selectedMake, setSelectedMake] = React.useState("");
+  const [selectedBody, setSelectedBody] = React.useState("");
+  const [selectedFuelTypes, setSelectedFuelTypes] = React.useState([]);
+  const handleMakeChange = (e) => {
+    setSelectedMake(e.target.value);
   };
+  const handleBodyChange = (e) => {
+    setSelectedBody(e.target.value);
+  };
+  const handleFuelChange = (e) => {
+    if(e.target.checked) {
+      // add fuel type
+      setSelectedFuelTypes([...selectedFuelTypes, e.target.name]);
+    } else {
+      // remove fuel type
+      let newFuelTypes = selectedFuelTypes.filter((item) => item !== e.target.name);
+      setSelectedFuelTypes(newFuelTypes);
+    }
+  };
+
+  const applyFilters = () => {
+    props.onFilterApplied({make:selectedMake, body:selectedBody, fuelTypes:selectedFuelTypes});
+  }
+  const onClearFilter = () => {
+    props.onClearFilter();
+    setSelectedMake("");
+    setSelectedBody("");
+    setSelectedFuelTypes([]);
+  }
+
   return (
     <>
       <div className="col-12">
@@ -23,11 +49,13 @@ const Filters = (props) => {
             <CardContent>
               <FormControl sx={{ minWidth: "100%" }}>
                 <Select
-                  value={props.makeList[0]}
-                  onChange=""
+                  value={selectedMake}
+                  onChange={handleMakeChange}
+                  label={"Make"}
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
+                  <MenuItem value="">All</MenuItem>
                   {
                     props.makeList.map((item) => (
                       <MenuItem value={item}>{item}</MenuItem>
@@ -43,11 +71,12 @@ const Filters = (props) => {
             <CardContent>
               <FormControl sx={{ minWidth: "100%" }}>
                 <Select
-                  value={props.bodyTypes[0]}
-                  onChange=""
+                  value={selectedBody}
+                  onChange={handleBodyChange}
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
+                <MenuItem value="">All</MenuItem>
                 {
                   props.bodyTypes.map((item) => (
                     <MenuItem value={item}>{item}</MenuItem>
@@ -64,12 +93,14 @@ const Filters = (props) => {
             <CardContent>
               <div>
                 
-                <FormGroup>
+                <FormGroup >
                   {
                     props.fuelTypes.map((item) => (
                       <FormControlLabel
                         control={<Checkbox />}
                         label={item}
+                        onChange={handleFuelChange}
+                        name={item}
                       />
                     ))
                   }
@@ -78,8 +109,8 @@ const Filters = (props) => {
             </CardContent>
           </Card>
         </Box>
-        <Button variant="contained">Apply Filters</Button>
-        <Button variant="contained" className="mt-2">Clear Filters</Button>
+        <Button variant="contained" onClick={applyFilters}>Apply Filters</Button>
+        <Button variant="contained" onClick={onClearFilter} className="mt-2">Clear Filters</Button>
       </div>
     </>
   );
