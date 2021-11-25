@@ -1,0 +1,199 @@
+/* 1 */
+{
+    "_id" : ObjectId("619dd60ab06b7f3c588f678d"),
+    "title" : "title1 2018 Tesla Model S 100D",
+    "images" : [ 
+        "image1.jpg", 
+        "image2.jpg", 
+        "image3.jpg"
+    ],
+    "make" : "Tesla",
+    "model" : "model S",
+    "price" : "69989",
+    "condition" : "used",
+    "mileage" : "56547",
+    "bodyType" : "sedan",
+    "transmission" : "automatic",
+    "year" : "2018",
+    "colorExt" : "Pearl White Multi",
+    "colorInt" : "Black",
+    "fuelType" : "Electric",
+    "noOfOwners" : "2",
+    "features" : "Alloy Wheels, Front dual zone A/C,Air Conditioning, Overhead airbag,ABS brakes, Heated Seats, Navigation System, Bluetooth, Premium Sound System, Remote keyless entry, Navigation System, Leather Seats, Memory Seat, Exterior Parking Camera Rear, Rain sensing wipers, Auto-leveling suspension, Power steering, Self-Parking, Enhanced Autopilot",
+    "isAvailable" : false
+}
+
+/* 2 */
+{
+    "_id" : ObjectId("619dd780b06b7f3c588f678e"),
+    "title" : "title 2 2018 Tesla Model S 100D",
+    "images" : [ 
+        "image1.jpg", 
+        "image2.jpg", 
+        "image3.jpg"
+    ],
+    "make" : "Tesla",
+    "model" : "model S",
+    "price" : "69989",
+    "condition" : "used",
+    "mileage" : "56547",
+    "bodyType" : "sedan",
+    "transmission" : "automatic",
+    "year" : "2018",
+    "colorExt" : "Pearl White Multi",
+    "colorInt" : "Black",
+    "fuelType" : "Electric",
+    "noOfOwners" : "2",
+    "features" : "Alloy Wheels, Front dual zone A/C,Air Conditioning, Overhead airbag,ABS brakes, Heated Seats, Navigation System, Bluetooth, Premium Sound System, Remote keyless entry, Navigation System, Leather Seats, Memory Seat, Exterior Parking Camera Rear, Rain sensing wipers, Auto-leveling suspension, Power steering, Self-Parking, Enhanced Autopilot",
+    "isAvailable" : false
+}
+
+/* 3 */
+{
+    "_id" : ObjectId("619dd781b06b7f3c588f678f"),
+    "title" : "title 3 2018 Tesla Model S 100D",
+    "images" : [ 
+        "image1.jpg", 
+        "image2.jpg", 
+        "image3.jpg"
+    ],
+    "make" : "Tesla",
+    "model" : "model S",
+    "price" : "69989",
+    "condition" : "used",
+    "mileage" : "56547",
+    "bodyType" : "sedan",
+    "transmission" : "automatic",
+    "year" : "2018",
+    "colorExt" : "Pearl White Multi",
+    "colorInt" : "Black",
+    "fuelType" : "Electric",
+    "noOfOwners" : "2",
+    "features" : "Alloy Wheels, Front dual zone A/C,Air Conditioning, Overhead airbag,ABS brakes, Heated Seats, Navigation System, Bluetooth, Premium Sound System, Remote keyless entry, Navigation System, Leather Seats, Memory Seat, Exterior Parking Camera Rear, Rain sensing wipers, Auto-leveling suspension, Power steering, Self-Parking, Enhanced Autopilot",
+    "isAvailable" : true
+}
+
+/* 4 */
+{
+    "_id" : ObjectId("619dd781b06b7f3c588f6790"),
+    "title" : "title 4 2018 Tesla Model S 100D",
+    "images" : [ 
+        "image1.jpg", 
+        "image2.jpg", 
+        "image3.jpg"
+    ],
+    "make" : "Tesla",
+    "model" : "model S",
+    "price" : "69989",
+    "condition" : "used",
+    "mileage" : "56547",
+    "bodyType" : "sedan",
+    "transmission" : "automatic",
+    "year" : "2018",
+    "colorExt" : "Pearl White Multi",
+    "colorInt" : "Black",
+    "fuelType" : "Electric",
+    "noOfOwners" : "2",
+    "features" : "Alloy Wheels, Front dual zone A/C,Air Conditioning, Overhead airbag,ABS brakes, Heated Seats, Navigation System, Bluetooth, Premium Sound System, Remote keyless entry, Navigation System, Leather Seats, Memory Seat, Exterior Parking Camera Rear, Rain sensing wipers, Auto-leveling suspension, Power steering, Self-Parking, Enhanced Autopilot",
+    "isAvailable" : false
+}
+
+/* 5 */
+{
+    "_id" : ObjectId("619dd781b06b7f3c588f6791"),
+    "title" : "title 5 2018 Tesla Model S 100D",
+    "images" : [ 
+        "image1.jpg", 
+        "image2.jpg", 
+        "image3.jpg"
+    ],
+    "make" : "Tesla",
+    "model" : "model S",
+    "price" : "69989",
+    "condition" : "used",
+    "mileage" : "56547",
+    "bodyType" : "sedan",
+    "transmission" : "automatic",
+    "year" : "2018",
+    "colorExt" : "Pearl White Multi",
+    "colorInt" : "Black",
+    "fuelType" : "Electric",
+    "noOfOwners" : "2",
+    "features" : "Alloy Wheels, Front dual zone A/C,Air Conditioning, Overhead airbag,ABS brakes, Heated Seats, Navigation System, Bluetooth, Premium Sound System, Remote keyless entry, Navigation System, Leather Seats, Memory Seat, Exterior Parking Camera Rear, Rain sensing wipers, Auto-leveling suspension, Power steering, Self-Parking, Enhanced Autopilot",
+    "isAvailable" : false
+}
+
+/* 6 */
+{
+    "_id" : ObjectId("619dd782b06b7f3c588f6792"),
+    "title" : "title 6 2018 Tesla Model S 100D",
+    "images" : [ 
+        "image1.jpg", 
+        "image2.jpg", 
+        "image3.jpg"
+    ],
+    "make" : "Tesla",
+    "model" : "model S",
+    "price" : "69989",
+    "condition" : "used",
+    "mileage" : "56547",
+    "bodyType" : "sedan",
+    "transmission" : "automatic",
+    "year" : "2018",
+    "colorExt" : "Pearl White Multi",
+    "colorInt" : "Black",
+    "fuelType" : "Electric",
+    "noOfOwners" : "2",
+    "features" : "Alloy Wheels, Front dual zone A/C,Air Conditioning, Overhead airbag,ABS brakes, Heated Seats, Navigation System, Bluetooth, Premium Sound System, Remote keyless entry, Navigation System, Leather Seats, Memory Seat, Exterior Parking Camera Rear, Rain sensing wipers, Auto-leveling suspension, Power steering, Self-Parking, Enhanced Autopilot",
+    "isAvailable" : false
+}
+
+/* 7 */
+{
+    "_id" : ObjectId("619dd782b06b7f3c588f6793"),
+    "title" : "title 7 2018 Tesla Model S 100D",
+    "images" : [ 
+        "image1.jpg", 
+        "image2.jpg", 
+        "image3.jpg"
+    ],
+    "make" : "Tesla",
+    "model" : "model S",
+    "price" : "69989",
+    "condition" : "used",
+    "mileage" : "56547",
+    "bodyType" : "sedan",
+    "transmission" : "automatic",
+    "year" : "2018",
+    "colorExt" : "Pearl White Multi",
+    "colorInt" : "Black",
+    "fuelType" : "Electric",
+    "noOfOwners" : "2",
+    "features" : "Alloy Wheels, Front dual zone A/C,Air Conditioning, Overhead airbag,ABS brakes, Heated Seats, Navigation System, Bluetooth, Premium Sound System, Remote keyless entry, Navigation System, Leather Seats, Memory Seat, Exterior Parking Camera Rear, Rain sensing wipers, Auto-leveling suspension, Power steering, Self-Parking, Enhanced Autopilot",
+    "isAvailable" : false
+}
+
+/* 8 */
+{
+    "_id" : ObjectId("619ecca917dae5182c3cca32"),
+    "title" : "2018 dumm Tesla Model S 100D",
+    "images" : [ 
+        "dumm1.JPG", 
+        "dumm2.jpg", 
+        "dumm3.jpg"
+    ],
+    "make" : "Tesla",
+    "model" : "model S",
+    "price" : "100",
+    "condition" : "used",
+    "mileage" : "200",
+    "bodyType" : "sedan",
+    "transmission" : "automatic",
+    "year" : "2018",
+    "colorExt" : null,
+    "colorInt" : null,
+    "fuelType" : "Electric",
+    "noOfOwners" : "2",
+    "features" : "Alloy Wheels, Front dual zone A/C,Air Conditioning, Overhead airbag,ABS brakes, Heated Seats, Navigation System, Bluetooth, Premium Sound System, Remote keyless entry, Navigation System, Leather Seats, Memory Seat, Exterior Parking Camera Rear, Rain sensing wipers, Auto-leveling suspension, Power steering, Self-Parking, Enhanced Autopilot",
+    "isAvailable" : false
+}
