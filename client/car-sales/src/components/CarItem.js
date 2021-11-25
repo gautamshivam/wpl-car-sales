@@ -76,7 +76,7 @@ const CarItem = (props) => {
   }
 
   return (
-    <Card className="carItem">
+    <Card className="carAction">
       <CardMedia
         component="img"
         alt="car"

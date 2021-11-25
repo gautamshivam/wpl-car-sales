@@ -1,7 +1,8 @@
-.carItem {
+.carAction {
     cursor: pointer;
     transition: all 1s ease-in-out;
 }
-.carItem:hover {
+.carAction:hover {
     transform: scale(1.1); 
+    transition: all .2s ease-in-out;
 }
