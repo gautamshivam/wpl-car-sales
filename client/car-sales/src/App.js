@@ -60,6 +60,10 @@ function App() {
     setClickedCarFav(isFavorite);
     navigate('details')
   }
+  const onCarEditClick = (car) => {
+    setClickedCar(car);
+    navigate('edititem')
+  }
 
 
   useEffect(() => {
@@ -82,16 +86,16 @@ function App() {
     <div className="App">
     <Navbar/>
     <Routes>
-      <Route path="/"   element={<Cars cars={cars} filters={filters} onFavoriteUpdated={onFavoriteUpdated} onCarClick={onCarClick}/>} exact></Route>
+      <Route path="/"   element={<Cars cars={cars} filters={filters} onFavoriteUpdated={onFavoriteUpdated} onCarClick={onCarClick} onCarEditClick={onCarEditClick}/>} exact></Route>
       <Route path="/login" element={<Login/>} exact></Route>
       <Route path="/register" element={<Register/>} exact></Route>
-      <Route path="/browse" element={<Cars cars={cars} filters={filters} onFavoriteUpdated={onFavoriteUpdated} onCarClick={onCarClick}/>} exact></Route>
+      <Route path="/browse" element={<Cars cars={cars} filters={filters} onFavoriteUpdated={onFavoriteUpdated} onCarClick={onCarClick} onCarEditClick={onCarEditClick}/>} exact></Route>
       <Route path="/user" element={<User/>} exact></Route>
       <Route path="/details" element={<Details car={clickedCar} isFav={clickedCarFav} onPurchase={onPurchase}/>} exact></Route>              
       <Route path="/favourites" element={<Favourites isFavUpdated={isFavUpdated}/>} exact></Route>
       <Route path="/purchases" element={<Purchased/>} exact></Route>
       <Route path="/additem" element={<AddItem/>} exact></Route>
-      <Route path="/edititem" element={<EditItem/>} exact></Route>
+      <Route path="/edititem" element={<EditItem car={clickedCar}/>} exact></Route>
     </Routes>
 </div>
   );

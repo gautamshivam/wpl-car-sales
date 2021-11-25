@@ -1,11 +1,12 @@
 import axios from "axios";
 import React from "react";
-
+import { useNavigate } from 'react-router-dom';
 
 const AddItem = () => {
 
     const formRef = React.createRef();
-       
+    let navigate = useNavigate();
+
     const handleSubmit = () => {
         console.log(formRef.current.images.files);
         const images = [];
@@ -32,7 +33,10 @@ const AddItem = () => {
             features:formRef.current.features.value,
             isAvailable:true
 
-        }).then((res) => console.log(res))
+        }).then((res) => {
+            console.log('added car');
+            navigate('/browse');
+        })
     }
 
   return (
