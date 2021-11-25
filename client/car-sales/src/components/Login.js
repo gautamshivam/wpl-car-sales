@@ -22,6 +22,7 @@ const Login = () => {
         }).then((res) => {
             setUser(res.data);
             setFav(res.data.favorites);
+            setFav(res.data.purchases);
             navigate('/browse')
         })
     }

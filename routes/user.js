@@ -11,6 +11,7 @@ router.put('/', (req, res, next) => {
     collection.update({_id:req.user._id}, {$set: req.body}, (err, updatedUser) => {
         if(err) throw err; 
         console.log(updatedUser)
+        res.send('user updated');
     });
 })
 module.exports = router;

@@ -10,12 +10,12 @@ import ShareIcon from '@mui/icons-material/Share';
 import IconButton from '@mui/material/IconButton';
 import Axios from 'axios';
 import { UserContext } from "./UserProvider";
-
+import { useNavigate } from 'react-router-dom';
 
 const CarItem = (props) => {
   const {user, setUser, fav, setFav} = useContext(UserContext);
   const [isFavorite, setIsFavorite] = useState(false);
-
+  let navigate = useNavigate();
 
   const findIfFavorite = () => {
     console.log('find favorite for',fav);
@@ -38,6 +38,10 @@ const CarItem = (props) => {
   }, [])
 
   const onToggleFavorite = () => {
+    if(user.username == "" || user.username == undefined) {
+      navigate('/login');
+      return;
+    }
     const alreadyFav = fav.find((item) => {
       return item._id == props.car._id
     })
@@ -62,7 +66,7 @@ const CarItem = (props) => {
   }
 
   const onCardClick = () => {
-    props.onCarClick(props.car)
+    props.onCarClick(props.car, isFavorite)
   }
 
   return (
@@ -71,7 +75,8 @@ const CarItem = (props) => {
         component="img"
         alt="car"
         height="100%"
-        image="./images/image3.jpg"
+        image={`./images/${props.car.images[0]}`}
+        onClick={onCardClick}
       />
       <CardContent onClick={onCardClick}>
         <Typography gutterBottom variant="h5" component="div">

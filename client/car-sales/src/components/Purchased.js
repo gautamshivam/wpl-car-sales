@@ -1,26 +1,25 @@
-import {React, useContext} from "react";
-import "./Favourites.css";
+import React, {useContext} from 'react'
 
 import {
-  Box,
-  Card,
-  CardContent,
-  Typography,
-  Button,
-  CardActions,
+    Box,
+    Card,
+    CardContent,
+    Typography,
+    Button,
+    CardActions,
 } from "@mui/material";
 import { UserContext } from "./UserProvider";
 
-const Favourites = () => {
+const Purchased = () => {
+    const {purchases} = useContext(UserContext);
 
-  const {fav} = useContext(UserContext);
-
-  return (
-    <div className="row">
+    return (
+        <div>
+                <div className="row">
       <div className="col-md-2"></div>
       <div className="col-md-8 mt-5 ">
         {
-          fav.map((item) => (
+          purchases.map((item) => (
               <Box sx={{ display: 'inline-block', boxShadow: 3, mb: 2 }} key={item._id}>
               <Card variant="outlined" >
                 <CardContent>
@@ -66,7 +65,8 @@ const Favourites = () => {
       </div>
       <div className="col-md-2"></div>
     </div>
-  );
-};
+        </div>
+    )
+}
 
-export default Favourites;
+export default Purchased
