@@ -8,6 +8,7 @@ import Navbar from './components/Navbar/Navbar'
 import Details from './components/Details';
 import Favourites from './components/Favourites';
 import AddItem from './components/AddItem'
+import EditItem from './components/EditItem'
 import {Route, Routes} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import Purchased from './components/Purchased';
@@ -90,6 +91,7 @@ function App() {
       <Route path="/favourites" element={<Favourites isFavUpdated={isFavUpdated}/>} exact></Route>
       <Route path="/purchases" element={<Purchased/>} exact></Route>
       <Route path="/additem" element={<AddItem/>} exact></Route>
+      <Route path="/edititem" element={<EditItem/>} exact></Route>
     </Routes>
 </div>
   );

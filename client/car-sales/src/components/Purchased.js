@@ -15,17 +15,18 @@ const Purchased = () => {
 
     return (
         <div>
-                <div className="row">
-      <div className="col-md-2"></div>
-      <div className="col-md-8 mt-5 ">
+      <div className="row mt-5 ">
+      <h1>Purchase History</h1>
+      <div className="col-md-3"></div>
+      <div className="col-md-6 ">
         {
           purchases.map((item) => (
-              <Box sx={{ display: 'inline-block', boxShadow: 3, mb: 2 }} key={item._id}>
+              <Box sx={{  boxShadow: 3, mb: 2 }} key={item._id}>
               <Card variant="outlined" >
                 <CardContent>
                   <div className="row">
                   <div className="col-md-4">
-                  <img src="./images/image1.jpg" className="img-thumbnail"/>
+                  <img src={`./images/${item.images[0]}`} className="img-thumbnail"/>
                   </div>
                   <div className="col-md-8">
                   <Typography
@@ -33,13 +34,13 @@ const Purchased = () => {
                     color="text.secondary"
                     gutterBottom
                   >
-                    Used
+                    {item.condition}
                   </Typography>
                   <Typography variant="h5" component="div">
                     {item.title}
                   </Typography>
                   <Typography sx={{ mb: 1.5, fontSize: 20 }} color="text.primary">
-                    56,547 mi.
+                    {item.mileage} mi.
                   </Typography>
                   <Typography
                     sx={{ fontSize: 30 }}
@@ -48,22 +49,22 @@ const Purchased = () => {
                     component="div"
                   >
                     <Box fontWeight="bold" display="inline">
-                      {item.price}
+                      ${item.price}
                     </Box>
                   </Typography>
                     </div>
                   </div>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">Go to buy</Button>
-                  <Button size="small">Remove from Favourites</Button>
+                 
+                  
                 </CardActions>
               </Card>
             </Box>
           ))
         }
       </div>
-      <div className="col-md-2"></div>
+      <div className="col-md-3"></div>
     </div>
         </div>
     )
