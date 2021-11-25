@@ -41,7 +41,18 @@ const EditItem = (props) => {
     useEffect(() => {
         formRef.current.title.value = props.car.title;
         formRef.current.make.value = props.car.make;
+        formRef.current.model.value = props.car.model;
+        formRef.current.price.value = props.car.price;
+        formRef.current.condition.value = props.car.condition;
+        formRef.current.mileage.value = props.car.mileage;
         formRef.current.bodyType.value = props.car.bodyType;
+        formRef.current.transmission.value = props.car.transmission;
+        formRef.current.year.value = props.car.year;
+        formRef.current.colorExt.value = props.car.colorExt;
+        formRef.current.colorInt.value = props.car.colorInt;
+        formRef.current.fuelType.value = props.car.fuelType;
+        formRef.current.noOfOwners.value = props.car.noOfOwners;
+        formRef.current.features.value = props.car.features;
     }, [])
     return (
         <div className="row">
@@ -53,21 +64,24 @@ const EditItem = (props) => {
             <form ref={formRef}>
             <input type="text" name="title" className="form-control" placeholder="title" />
             <input type="text" name="make" className="form-control" placeholder="make"  />
-            <input type="text" name="model" className="form-control" placeholder="model" value="model S"/>
-            <input type="text" name="price" className="form-control" placeholder="price" value="69989"/>
-            <input type="text" name="condition" className="form-control" placeholder="condtition" value="used"/>
-            <input type="text" name="mileage" className="form-control" placeholder="mileage" value="56547"/>
-            <input type="text" name="bodyType" className="form-control" placeholder="body type" value="sedan" />
-            <input type="text" name="transmission" className="form-control" placeholder="transmission" value="automatic"/>
-            <input type="text" name="year" className="form-control" placeholder="year" value="2018"/>
-            <input type="text" name="colorExt" className="form-control" placeholder="color exterior" value="Pearl White Multi"/>
-            <input type="text" name="colorInt" className="form-control" placeholder="color interior" value="Black"/>
-            <input type="text" name="fuelType" className="form-control" placeholder="fuel type" value="Electric"/>
-            <input type="text" name="noOfOwners" className="form-control" placeholder="no of pervious owners" value="2"/>
+            <input type="text" name="model" className="form-control" placeholder="model" />
+            <input type="text" name="price" className="form-control" placeholder="price" />
+            <input type="text" name="condition" className="form-control" placeholder="condtition" />
+            <input type="text" name="mileage" className="form-control" placeholder="mileage" />
+            <input type="text" name="bodyType" className="form-control" placeholder="body type"/>
+            <input type="text" name="transmission" className="form-control" placeholder="transmission" />
+            <input type="text" name="year" className="form-control" placeholder="year" />
+            <input type="text" name="colorExt" className="form-control" placeholder="color exterior" />
+            <input type="text" name="colorInt" className="form-control" placeholder="color interior" />
+            <input type="text" name="fuelType" className="form-control" placeholder="fuel type" />
+            <input type="text" name="noOfOwners" className="form-control" placeholder="no of pervious owners" />
             <input type="file" name="images" accept="image/png, image/gif, image/jpeg" className="form-control" placeholder="image" multiple/>
-            <textarea name="features" className="form-control" placeholder="features" value="Alloy Wheels, Front dual zone A/C,Air Conditioning, Overhead airbag,ABS brakes, Heated Seats, Navigation System, Bluetooth, Premium Sound System, Remote keyless entry, Navigation System, Leather Seats, Memory Seat, Exterior Parking Camera Rear, Rain sensing wipers, Auto-leveling suspension, Power steering, Self-Parking, Enhanced Autopilot"></textarea>
+            <textarea name="features" className="form-control" placeholder="features" ></textarea>
             <button type="button" onClick={handleSubmit} className="btn btn-info">
                 Update
+            </button>
+            <button type="button" className="btn btn-warning m-1">
+                Delete
             </button>
             </form>
         <a href="/browse">Cancel</a>
