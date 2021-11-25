@@ -16,17 +16,18 @@ const Favourites = () => {
   const {fav} = useContext(UserContext);
 
   return (
-    <div className="row">
-      <div className="col-md-2"></div>
-      <div className="col-md-8 mt-5 ">
+    <div className="row mt-5">
+      <h1>Wish List</h1>
+      <div className="col-md-3"></div>
+      <div className="col-md-6  ">
         {
           fav.map((item) => (
-              <Box sx={{ display: 'inline-block', boxShadow: 3, mb: 2 }} key={item._id}>
+              <Box sx={{  boxShadow: 3, mb: 2 }} key={item._id}>
               <Card variant="outlined" >
                 <CardContent>
                   <div className="row">
                   <div className="col-md-4">
-                  <img src="./images/image1.jpg" className="img-thumbnail"/>
+                  <img src={`./images/${item.images[0]}`} className="img-thumbnail"/>
                   </div>
                   <div className="col-md-8">
                   <Typography
@@ -40,7 +41,7 @@ const Favourites = () => {
                     {item.title}
                   </Typography>
                   <Typography sx={{ mb: 1.5, fontSize: 20 }} color="text.primary">
-                    56,547 mi.
+                    {item.mileage} mi.
                   </Typography>
                   <Typography
                     sx={{ fontSize: 30 }}
@@ -49,7 +50,7 @@ const Favourites = () => {
                     component="div"
                   >
                     <Box fontWeight="bold" display="inline">
-                      {item.price}
+                      ${item.price}
                     </Box>
                   </Typography>
                     </div>
@@ -64,7 +65,7 @@ const Favourites = () => {
           ))
         }
       </div>
-      <div className="col-md-2"></div>
+      <div className="col-md-3"></div>
     </div>
   );
 };

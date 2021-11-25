@@ -37,10 +37,11 @@ const AddItem = () => {
 
   return (
     <div className="row">
-      <h1> Add new Car Record </h1>
+      
        <div className="col-md-3"></div>
      
       <div className="col-md-6">
+      <h1> Add new Car Record </h1>
         <form ref={formRef}>
         <input type="text" name="title" className="form-control" placeholder="title" value="2018 Tesla Model S 100D" />
         <input type="text" name="make" className="form-control" placeholder="make" value="Tesla" />
