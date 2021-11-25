@@ -30,7 +30,9 @@ router.post('/register', (req, res, next)=> {
             const hashedPassword = bcrypt.hashSync(req.body.password, 10);
             collection.insert({
                 username: req.body.username,
-                password: hashedPassword
+                password: hashedPassword,
+                favorites:[],
+                purchases:[]
             }, (err, newUser) => {
                 res.send(newUser);
             })

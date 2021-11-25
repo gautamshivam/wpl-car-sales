@@ -11,9 +11,7 @@ const Register = () => {
     const register = () => {
         Axios.post('/api/auth/register', {
             username: registerUsername,
-            password: registerPassword,
-            favorites:[],
-            purchases:[]
+            password: registerPassword
         }, {
             withCredentials: true
         }).then((res) => console.log(res))
