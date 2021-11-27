@@ -23,6 +23,7 @@ const Cars = (props) => {
   }
   const onClearFilter = () => {
     props.onClearFilter();
+    setcurrPage(1);
   }
   const onSortApplied = (type) => {
     props.onSortApplied(type);
@@ -56,7 +57,7 @@ const Cars = (props) => {
         </div>
         <div className="col-md-6"> 
           <Searchbar onSortApplied={onSortApplied} onQuery={onQuery}/>
-          <div className="row mt-4 justify-content-end align-items-center">
+          {/* <div className="row mt-4 justify-content-center align-items-center">
             <div className="col-md-2">
               <Button variant='contained' 
               onClick={prevPage} 
@@ -78,13 +79,36 @@ const Cars = (props) => {
                 Next Page
               </Button>
             </div>
-          </div>
+          </div> */}
           <div className="row mt-4">
             {paginate(props.cars, pageSize ).map((car) => (
               <div className="col-md-6 p-3">
                 <CarItem key={car._id} car={car} onFavClick={onFavClick} onCarClick={props.onCarClick} onCarEditClick={props.onCarEditClick}/>
               </div>
             ))}
+          </div>
+          <div className="row my-5 justify-content-center align-items-center">
+            <div className="col-md-2">
+              <Button variant='contained' 
+              onClick={prevPage} 
+              startIcon={<ChevronLeftRoundedIcon/>}
+              disabled={currPage===1}>
+                Prev Page
+              </Button>
+            </div>
+            <div className="col-md-2">
+              <Typography fontWeight='bold'>
+                Page {currPage} / {Math.ceil(props.cars.length / pageSize)}
+              </Typography>
+            </div>
+            <div className="col-md-2">
+              <Button variant='contained' 
+              onClick={nextPage} 
+              endIcon={<ChevronRightRoundedIcon/>}
+              disabled={currPage === Math.ceil(props.cars.length/pageSize)}>
+                Next Page
+              </Button>
+            </div>
           </div>
         </div>
         <div className="col-md-2"></div>

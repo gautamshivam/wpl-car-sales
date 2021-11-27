@@ -13,10 +13,17 @@ import {
 import Axios from 'axios';
 import { UserContext } from "./UserProvider";
 import { useNavigate } from 'react-router-dom';
+import Chip from '@mui/material/Chip';
 
-const style = {
-  marginLeft: "auto"
-};
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+
 
 const Details = (props) => {
   const {user, setUser, purchases, setPurchases,  fav, setFav} = useContext(UserContext);
@@ -92,41 +99,38 @@ const Details = (props) => {
       {console.log(props)}
       <div className="col-md-2"></div>
       <div className="col-md-6">
-        {/* <img className="img-fluid " src="./images/image1.jpg" alt="image1"/>  */}
         <Carousel images={props.car.images} />
-        <Box sx={{ boxShadow: 3, mb: 2,mt:2 }}>
-          <Card variant="outlined" >
-            <CardContent>
-              <div className="row">
-              <div className="col-md-12">
-              <Typography fontWeight="bold" variant="h6" component="div">
-                Features: 
-              </Typography>
-              <Typography variant="h6" component="div">
-                {props.car.features}
-              </Typography>
+        {
+          props.car.features !== "" &&
+          <Box sx={{ boxShadow: 3, mb: 2,mt:2 }}>
+            <Card variant="outlined" >
+              <CardContent>
+                <div className="row">
+                <div className="col-md-12">
+                <Typography fontWeight="bold" variant="h6" component="div">
+                  Features: 
+                </Typography>
+                <Typography variant="h6" component="div">
+                  {
+                    props.car.features.split(',').map((item) => (
+                        <Chip label={item}  className="m-2" color='primary' size='medium'/>
+                    ))
+                  }
+                </Typography>
+                  </div>
                 </div>
-              </div>
-            </CardContent>
-          </Card>
-        </Box>
+              </CardContent>
+            </Card>
+          </Box>
+        }
+        
       </div>
       <div className="col-md-2 mt-5">
         <Box sx={{ boxShadow: 3, mb: 2 }}>
           <Card variant="outlined">
             <CardContent>
-              <Typography
-                sx={{ fontSize: 14 }}
-                color="text.secondary"
-                gutterBottom
-              >
-                Used
-              </Typography>
               <Typography variant="h5" component="div">
                 {props.car.title}
-              </Typography>
-              <Typography sx={{ mb: 1.5, fontSize: 20 }} color="text.primary">
-                {props.car.price} mi.
               </Typography>
               <Typography
                 sx={{ fontSize: 30 }}
@@ -141,10 +145,12 @@ const Details = (props) => {
             </CardContent>
             <CardActions>
               {
-                !isPurchased && props.car.isAvailable && <Button size="small" onClick={onPurchase}>Buy Now</Button>
+                !isPurchased && props.car.isAvailable && 
+                <Button size="small" onClick={onPurchase} startIcon={<ShoppingCartIcon/>}>Buy Now</Button>
               }
               {
-                !props.isFav && !isFavorite &&  <Button size="small" onClick={onToggleFavorite}>Add to Wishlist</Button>
+                !props.isFav && !isFavorite &&  
+                <Button size="small" onClick={onToggleFavorite} startIcon={<FavoriteIcon/>}>Add to Wishlist</Button>
               }
               
             </CardActions>
@@ -152,50 +158,82 @@ const Details = (props) => {
         </Box>
 
         <Box sx={{ boxShadow: 3, mb: 2 }}>
-          <Card variant="outlined" sx={{ height:"100%"}, style}>
-            <CardContent>
-              
-              <Typography variant="h5" component="p">
-               Make: {props.car.make}
-              </Typography>
-              <Divider variant="inset"  />
-              <Typography variant="h5" component="div">
-                Model: {props.car.model}
-              </Typography>
-              <Divider variant="inset"  />
-              <Typography variant="h5" component="div">
-                Price: {props.car.price}
-              </Typography>
-              <Divider variant="inset"  />
-              <Typography variant="h5" component="div">
-                Condition: {props.car.condition}
-              </Typography>
-              <Divider variant="inset"  />
-              <Typography variant="h5" component="div">
-                Miles: {props.car.mileage}
-              </Typography>
-              <Divider variant="inset"  />
-              <Typography variant="h5" component="div">
-                Body Type: {props.car.bodyType}
-              </Typography>
-              <Divider variant="inset"  />
-              <Typography variant="h5" component="div">
-                Transmission: {props.car.transmission}
-              </Typography>
-              <Divider variant="inset"  />
-              <Typography variant="h5" component="div">
-                Year Mfg: {props.car.year}
-              </Typography>
-              <Divider variant="inset"  />
-              <Typography variant="h5" component="div">
-                Fuel Type: {props.car.fuelType}
-              </Typography>
-              <Divider variant="inset"  />
-              <Typography variant="h5" component="div">
-                No of Owners: {props.car.noOfOwners}
-              </Typography>
-            </CardContent>
-          </Card>
+          <TableContainer component={Paper}>
+            <Table aria-label="simple table">
+              <TableBody>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Make
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.make}</TableCell>
+                  </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Body
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.bodyType}</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Condition
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.condition}</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Transmission
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.transmission}</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Model
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.model}</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Price
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>${props.car.price}</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Mileage
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.mileage} mi.</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Fuel Type
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.fuelType}</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      No Of Owners
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.noOfOwners}</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Mfg Year
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.year}</TableCell>
+                </TableRow>
+              </TableBody>
+            </Table>
+          </TableContainer>
         </Box>
       </div>
       <div className="col-md-2"></div>

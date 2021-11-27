@@ -1,5 +1,6 @@
 .NavbarItems{
-    background: rgb(124, 160, 151);
+    /* background: rgb(124, 160, 151); */
+    background-color: #4CAF50;
     display: flex;
     justify-content: left;
     align-items: center;
@@ -30,15 +31,10 @@
     text-decoration: none;
     font-weight: bold;
 }
-.nav-links a:hover{
-    color:"#4CAF50";
+.nav-links:hover {
+    color:#27472f !important;
     text-decoration: none;
-    font-weight: bold;
-}
-a:hover {
-    color:"#4CAF50";
-    text-decoration: none;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 
