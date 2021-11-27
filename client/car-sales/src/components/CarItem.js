@@ -11,6 +11,7 @@ import { UserContext } from "./UserProvider";
 import { useNavigate } from 'react-router-dom';
 import EditIcon from '@mui/icons-material/Edit';
 import Button from '@mui/material/Button';
+import Chip from '@mui/material/Chip';
 
 import './CarItem.css';
 
@@ -67,7 +68,7 @@ const CarItem = (props) => {
     }).catch((err) => {console.log(err)});
   }
 
-  const onCardClick = () => {
+  const onCarClick = () => {
     props.onCarClick(props.car, isFavorite)
   }
 
@@ -75,6 +76,11 @@ const CarItem = (props) => {
     props.onCarEditClick(props.car)
   }
 
+  const capitalize = (str) => {
+      str = str.toLowerCase();
+      str = str[0].toUpperCase() + str.slice(1)
+      return str;
+  }
   return (
     <Card className="carAction">
       <CardMedia
@@ -82,9 +88,9 @@ const CarItem = (props) => {
         alt="car"
         height="100%"
         image={`./images/${props.car.images[0]}`}
-        onClick={onCardClick}
+        onClick={onCarClick}
       />
-      <CardContent onClick={onCardClick}>
+      <CardContent onClick={onCarClick}>
         <Typography gutterBottom variant="h5" component="div">
           {props.car.title}
         </Typography>
@@ -95,6 +101,11 @@ const CarItem = (props) => {
         </Typography>
         <Typography  variant="body2" color="text.primary">
           {props.car.mileage} miles
+        </Typography>
+        <Typography variant="h6" component="div">
+            <Chip label={capitalize(props.car.bodyType)}  className="m-2" color='primary' size='medium'/>
+            <Chip label={capitalize(props.car.make)}  className="m-2" color='primary' size='medium'/>
+            <Chip label={capitalize(props.car.fuelType)}  className="m-2" color='primary' size='medium'/>
         </Typography>
       </CardContent>
       <CardActions>

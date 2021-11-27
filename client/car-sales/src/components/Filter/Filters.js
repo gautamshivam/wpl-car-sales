@@ -53,7 +53,6 @@ const Filters = (props) => {
                 <Select
                   value={selectedMake}
                   onChange={handleMakeChange}
-                  label={"Make"}
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >

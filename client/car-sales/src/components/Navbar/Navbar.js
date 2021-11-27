@@ -86,11 +86,9 @@ const Navbar = () => {
                         <>
                             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                                 <Typography sx={{ minWidth: 100, color:'white', fontWeight:'bold' }}>Hi {user.username[0].toUpperCase() + user.username.slice(1)}</Typography>
-                                <Tooltip title="Account settings">
                                 <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
                                     <Avatar sx={{ width: 32, height: 32 }}>{user.username.charAt(0).toUpperCase()}</Avatar>
                                 </IconButton>
-                                </Tooltip>
                             </Box>
                             <Menu
                                 anchorEl={anchorEl}

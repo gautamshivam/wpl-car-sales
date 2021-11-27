@@ -160,7 +160,7 @@ function App() {
 
       <Route path="/user" element={<User/>} exact></Route>
       <Route path="/details" element={<Details car={clickedCar} isFav={clickedCarFav} onPurchase={onPurchase}/>} exact></Route>              
-      <Route path="/favourites" element={<Favourites isFavUpdated={isFavUpdated}/>} exact></Route>
+      <Route path="/favourites" element={<Favourites onCarClick={onCarClick} isFavUpdated={isFavUpdated}/>} exact></Route>
       <Route path="/purchases" element={<Purchased/>} exact></Route>
       <Route path="/additem" element={<AddItem/>} exact></Route>
       <Route path="/edititem" element={<EditItem car={clickedCar}/>} exact></Route>

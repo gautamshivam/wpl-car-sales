@@ -11,8 +11,11 @@ import {
 } from "@mui/material";
 import { UserContext } from "./UserProvider";
 import Axios from 'axios';
+import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
-const Favourites = () => {
+const Favourites = (props) => {
 
   const {user, setUser, fav, setFav} = useContext(UserContext);
 
@@ -30,9 +33,17 @@ const Favourites = () => {
     }).catch((err) => {console.log(err)});
   }
 
+  const onCarClick = (car) => {
+    props.onCarClick(car)
+  }
+
   return (
     <div className="row mt-5">
-      <h1>Wish List</h1>
+      <Typography variant='h3' fontWeight='bold' marginBottom='20px'>
+        <FavoriteIcon style={{color:'red', fontSize:'60px'}}/>
+            Wish List
+        {/* <FavoriteIcon style={{color:'red', fontSize:'60px'}}/> */}
+      </Typography>
       <div className="col-md-3"></div>
       <div className="col-md-6  ">
         {
@@ -40,18 +51,11 @@ const Favourites = () => {
               <Box sx={{  boxShadow: 3, mb: 2 }} key={item._id}>
               <Card variant="outlined" >
                 <CardContent>
-                  <div className="row">
+                  <div className="row align-items-center">
                   <div className="col-md-4">
-                  <img src={`./images/${item.images[0]}`} className="img-thumbnail"/>
+                    <img src={`./images/${item.images[0]}`} alt={item.title} className="img img-fluid img-thumbnail"/>
                   </div>
                   <div className="col-md-8">
-                  <Typography
-                    sx={{ fontSize: 14 }}
-                    color="text.secondary"
-                    gutterBottom
-                  >
-                    Used
-                  </Typography>
                   <Typography variant="h5" component="div">
                     {item.title}
                   </Typography>
@@ -72,8 +76,10 @@ const Favourites = () => {
                   </div>
                 </CardContent>
                 <CardActions>
-                  <Button size="small">Go to buy</Button>
-                  <Button size="small" onClick={() => onToggleFavorite(item._id) }>Remove from Favourites</Button>
+                  <Button size="small" startIcon={<ShoppingCartIcon/>} onClick={() => onCarClick(item)}>Go to buy</Button>
+                  <Button size="small" startIcon={<RemoveCircleIcon/>} onClick={() => onToggleFavorite(item._id) }>
+                    Remove from Favourites
+                    </Button>
                 </CardActions>
               </Card>
             </Box>
