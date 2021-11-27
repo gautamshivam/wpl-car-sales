@@ -46,15 +46,15 @@
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
-  font-size: 12px;
+  font-size: 14px;
 }
 .form .message a {
   color: #4CAF50;
   text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
 }
-.form .register-form {
-  display: none;
-}
+
 .container {
   position: relative;
   z-index: 1;
