@@ -63,7 +63,7 @@ const Navbar = () => {
         <div className="row justify-content-center NavbarItems">
                 <ul className='nav-menu justify-content-center mt-3'>
                     <li>
-                        <Link className="nav-links" to="/">
+                        <Link className="nav-links" to="/" color='primary'>
                             <HomeIcon/>Home
                         </Link>
                     </li>
@@ -79,7 +79,7 @@ const Navbar = () => {
                     {
                         user == null || user.username === undefined ?
                         <li>
-                            <Link className="nav-links" to="/login">
+                            <Link className="nav-links" to="/login" color='inherit'>
                                 Login / Register<LoginIcon/> 
                             </Link>
                         </li> :

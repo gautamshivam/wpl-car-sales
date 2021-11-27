@@ -30,5 +30,15 @@
     text-decoration: none;
     font-weight: bold;
 }
+.nav-links a:hover{
+    color:"#4CAF50";
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    color:"#4CAF50";
+    text-decoration: none;
+    font-weight: bold;
+}
 
 
