@@ -1,4 +1,4 @@
-import { Card, CardContent } from "@mui/material";
+import { Card, CardContent, CardHeader } from "@mui/material";
 import React from "react";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
@@ -47,6 +47,7 @@ const Filters = (props) => {
       <div className="col-12">
         <Box sx={{ boxShadow: 3, mb: 2 }}>
           <Card variant="outlined">
+            <CardHeader title="Make" titleTypographyProps={{variant:'h5', fontWeight:'bold' }}></CardHeader>
             <CardContent>
               <FormControl sx={{ minWidth: "100%" }}>
                 <Select
@@ -69,6 +70,7 @@ const Filters = (props) => {
         </Box>
         <Box sx={{ boxShadow: 3, mb: 2 }}>
           <Card variant="outlined">
+            <CardHeader title="Body" titleTypographyProps={{variant:'h5', fontWeight:'bold' }}></CardHeader>
             <CardContent>
               <FormControl sx={{ minWidth: "100%" }}>
                 <Select
@@ -91,9 +93,9 @@ const Filters = (props) => {
 
         <Box sx={{ boxShadow: 3, mb: 2 }}>
           <Card variant="outlined">
+            <CardHeader title="Fuel Types" titleTypographyProps={{variant:'h5', fontWeight:'bold' }}></CardHeader>
             <CardContent>
               <div>
-                
                 <FormGroup >
                   {
                     props.fuelTypes.map((item) => (

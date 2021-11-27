@@ -15,20 +15,23 @@ const SearchBar = (props) => {
     }
     return(
         <form class="pt-3">
-          <div class="inner-form">
-            <div class="input-field second-wrap">
-              <input id="search" type="text" ref={ref} placeholder="Search for cars" />
+          <div class="row justify-content-center align-items-sm-center">
+            <div className="col-md-8">
+              <div class="form-control">
+                <input className="w-100 no-outline" id="search" type="text" ref={ref} placeholder="Search for cars" />
+              </div>
             </div>
-            <div class="input-field third-wrap">
+            <div className="col-md-2">
+              <Button variant='contained' onClick={onQuery} type='button' startIcon={<SearchIcon />}>Search</Button>
             </div>
-            <Button variant='contained' onClick={onQuery} type='button' startIcon={<SearchIcon />}>Search</Button>
-            <select className="" onChange={onSortApplied}>
-                <option value="0">Relevence</option>
-                <option value="1">Low to high</option>
-                <option value="2">High to low</option>
-            </select>
+            <div className="col-md-2">
+              <select className="form-control" onChange={onSortApplied}>
+                  <option value="0">Relevence</option>
+                  <option value="1">Low to high</option>
+                  <option value="2">High to low</option>
+              </select>
+            </div>
           </div>
-        
       </form>
     );
 };

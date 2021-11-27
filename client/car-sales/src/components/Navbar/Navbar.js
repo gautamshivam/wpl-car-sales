@@ -35,6 +35,9 @@ const Navbar = () => {
         setAnchorEl(null);
     };
 
+    const navigateToHome = () => {
+        navigate('/');
+    }
     const navigateToProfile = () => {
         navigate('/user');
     }
@@ -71,7 +74,7 @@ const Navbar = () => {
                         </Link>
                     </li>
                     <li className="mt-3" style={{marginLeft:'150px', marginRight:'150px'}}>
-                        <ElectricCarIcon style={{color:'#FFFFFF', fontSize:'40px'}}/>
+                        <ElectricCarIcon style={{color:'#FFFFFF', fontSize:'40px'}} onClick={navigateToHome}/>
                     </li>
                     {
                         user == null || user.username === undefined ?
