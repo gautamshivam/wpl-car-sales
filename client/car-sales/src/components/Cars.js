@@ -20,6 +20,7 @@ const Cars = (props) => {
 
   const onFilterApplied = (filters) => {
     props.onFilterApplied(filters)
+    setcurrPage(1);
   }
   const onClearFilter = () => {
     props.onClearFilter();
