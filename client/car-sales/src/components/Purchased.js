@@ -4,6 +4,7 @@ import {
     Box,
     Card,
     CardContent,
+    Divider,
     Typography,
 } from "@mui/material";
 import { UserContext } from "./UserProvider";
@@ -50,6 +51,20 @@ const Purchased = () => {
                 </Typography>
                   </div>
                 </div>
+                <Divider style={{marginTop:"25px"}}/>
+                <Typography align="left" fontWeight="bold" variant="h5" marginTop="25px">
+                  Shipping Address:
+                </Typography>
+                <Typography align="left" variant="body1">
+                  {item.shippingAddr}
+                </Typography>
+                <Typography align="left" variant="body1" fontWeight="bold">
+                  Purchased On:
+                </Typography>
+                <Typography align="left" variant="body1">
+                  {item.purchaseDate.toDateString()}
+                </Typography>
+                
               </CardContent>
             </Card>
           </Box>
