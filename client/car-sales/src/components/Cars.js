@@ -9,7 +9,7 @@ import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 const Cars = (props) => {
 
   const [currPage, setcurrPage] = useState(1);
-  const pageSize = 3;
+  const pageSize = 7;
 
   const onlyUnique = (value, index, self) => {
     return self.indexOf(value) === index;

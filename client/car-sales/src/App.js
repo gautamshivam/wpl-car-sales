@@ -20,6 +20,8 @@ function App() {
   const [filteredCars, setFilteredCars] = useState([]);
   const [unSortedCars, setUnSortedCars] = useState([]);
   const [filters, setFilters] = useState({makeList:[], bodyTypeList:[], fuelTypeList:[]});
+  const [lastAppliedFilters, setLastAppliedFilters] = useState({makeList:[], bodyTypeList:[], fuelTypeList:[]});
+  const [lastQuery, setLastQuery] = useState("");
   const [user, setUser] = useState({});
 
   const [clickedCar, setClickedCar] = useState(null);
@@ -84,11 +86,14 @@ function App() {
 
   const onFilterApplied = (filters) => {
     console.log('filters apply', filters);
+    setLastAppliedFilters(filters);
     let filteredList = cars;
     if(filters.make !== "")filteredList = cars.filter((car) => car.make === filters.make);
     if(filters.body !== "")filteredList = filteredList.filter((car) => car.bodyType === filters.body);
     if(filters.fuelTypes.length > 0)filteredList = filteredList.filter((car) => filters.fuelTypes.includes(car.fuelType));
-    setFilteredCars(filteredList)
+    if(lastQuery !== "")filteredList = filteredList.filter((car) => car.title.toLowerCase().includes(lastQuery.toLowerCase()));
+    setFilteredCars(filteredList);
+    return filteredList;
   }
   const onClearFilter = () => {
     setFilteredCars(cars);
@@ -117,10 +122,11 @@ function App() {
   }
   const onQuery = (query) => {
     console.log('search by title:',query);
-    let filteredList = cars;
+    setLastQuery(query);
+    let filteredList = onFilterApplied(lastAppliedFilters);
     filteredList = filteredList.filter((car) => car.title.toLowerCase().includes(query.toLowerCase()));
-    console.log(filteredList);
     setFilteredCars(filteredList)
+    return filteredList;
   }
 
   const onPurchase = () => {
