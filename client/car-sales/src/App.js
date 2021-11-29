@@ -32,7 +32,7 @@ function App() {
   const [purchaseUpdate, setpurchaseUpdate] = useState(purchases)
 
   const getCars = () => {
-    fetch('https://stark-peak-39857.herokuapp.com/api/cars').then((res) => res.json())
+    fetch(`${process.env.SERVER_API}/api/cars`).then((res) => res.json())
     .then((data) => {
       console.log(data);
       setCars(data);
