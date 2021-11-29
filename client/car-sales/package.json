@@ -42,5 +42,8 @@
       "last 1 safari version"
     ]
   },
+  "engines": {
+    "node": "14.5.0"
+  },
   "proxy": "https://stark-peak-39857.herokuapp.com"
 }
