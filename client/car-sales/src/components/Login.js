@@ -23,7 +23,7 @@ const Login = () => {
     let navigate = useNavigate();
 
     const getUser = () => {
-        fetch(`/api/user`,{
+        Axios.get(`/api/user`,{
             withCredentials: true
         }).then((res) => {
             setUser(res.data);
