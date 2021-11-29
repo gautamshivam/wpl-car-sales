@@ -1,31 +1,25 @@
 export const cars = [
     {
-        _id: "1",
-        title:"2018 Tesla Model S 100D",
-        make:"Tesla",
-        model:"model S",
-        price: 69989,
-        condition:"used",
-        mileage: 56547,
-        bodyStyle: "sedan",
-        transmission: "automatic",
-        features: {
-            exterior:["Alloy Wheels"],
-            interior:["Front dual zone A/C","Air Conditioning"],
-            safety:["Overhead airbag","ABS brakes"],
-            convenience:["Heated Seats","Navigation System"],
-            entertainment:["Bluetooth","Premium Sound System"],
-            technology:["Remote keyless entry","Navigation System"],
-            seating:["Leather Seats","Memory Seat"],
-            technology:["Exterior Parking Camera Rear","Rain sensing wipers"],
-            mechanical:["Auto-leveling suspension","Power steering"],
-            other:["Self-Parking","Enhanced Autopilot"]
-        },
-        year: 2018,
-        color:{exterior:"Pearl White Multi", interior:"Black"},
-        fuelType: "Electric",
-        numberOfOwners: 2,
-        images: ["image1.jpg", "image2.jpg","image3.jpg"]
-        
+       
+       "title":"2021 Audi Q3 40 Premium",
+       "bodyType":"SUV",
+       "colorInt":"Diamond Black",
+       "colorExt":"White",
+       "condition":"used",
+       "features":"Alloy Wheels, Front dual zone A/C,Air Conditioning, Overhead airbag,ABS brakes, Heated Seats, Navigation System, Bluetooth, Premium Sound System, Remote keyless entry, Navigation System, Leather Seats, Memory Seat, Exterior Parking Camera Rear, Rain sensing wipers, Auto-leveling suspension, Power steering, Self-Parking, Enhanced Autopilot",
+       "fuelType":"Gasoline",
+       "isAvailable":true,
+       "make":"Audi",
+       "mileage":"51766",
+       "model":"Q3 40",
+       "noOfOwners":"1",
+       "price":"35844",
+       "transmission":"8-speed Automatic",
+       "year":"2018",
+       "images":[
+          "audi1.jpg",
+          "audi2.jpg",
+          "audi3.jpg"
+       ]
     }
 ]

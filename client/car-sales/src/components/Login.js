@@ -71,8 +71,8 @@ const Login = () => {
                     <ElectricCarIcon style={{color:'#4CAF50', fontSize:'80px'}}/>
                 </Typography>
                 <form class="login-form" onChange={onInputChange}>
-                    <input type="text" name="title" class="form-control" placeholder="username" required={true} onChange={e => setLogingUsername(e.target.value)}/>
-                    <input type="text" name="genre" class="form-control" placeholder="password" required={true} onChange={e => setLogingPassword(e.target.value)}/>
+                    <input type="text" name="username" class="form-control" placeholder="username" required={true} onChange={e => setLogingUsername(e.target.value)}/>
+                    <input type="password" name="password" class="form-control" placeholder="password" required={true} onChange={e => setLogingPassword(e.target.value)}/>
                     <Button onClick={login} variant='contained' startIcon={<LoginIcon/>}>login</Button>
                     { isError && <Typography marginTop='25px' color='red' fontWeight='bold'>Error: {error}</Typography>}
                     <p class="message">Not registered? <Link to="/register">Create an account</Link></p>

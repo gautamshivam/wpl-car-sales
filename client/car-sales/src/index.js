@@ -12,11 +12,11 @@ import { GlobalStyles } from '@mui/styled-engine';
 const theme = createTheme({
     palette: {
         primary: {
-          main: '#4CAF50',
+          main: '#67A078',
           contrastText: "#fff"
         },
         secondary: {
-          main: green[500],
+          main: '#67A078',
         }
     },
     typography: {
@@ -43,7 +43,7 @@ ReactDOM.render(
     <BrowserRouter>
         <UserProvider>
             <ThemeProvider theme={theme}>
-                <GlobalStyles styles={{ link: { color: 'green' } }}>
+                <GlobalStyles styles={{ link: { color: '#67A078' } }}>
                 </GlobalStyles>
                 <App />
             </ThemeProvider> 

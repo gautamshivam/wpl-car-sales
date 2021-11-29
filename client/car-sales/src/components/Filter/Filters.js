@@ -111,7 +111,7 @@ const Filters = (props) => {
             </CardContent>
           </Card>
         </Box>
-        <Button variant="contained" onClick={applyFilters} startIcon={<FilterAlt />}>Apply Filters</Button>
+        <Button variant="contained" onClick={applyFilters} startIcon={<FilterAlt />}>Apply Filters</Button><br/>
         <Button variant="contained" onClick={onClearFilter} startIcon={<ClearIcon />} className="mt-2">Clear Filters</Button>
       </div>
     </>
