@@ -65,7 +65,7 @@ const Details = (props) => {
     setUser(user);
 
     let car = props.car;
-    Axios.put('/api/cars/purchase/'+car._id, car,{
+    Axios.put(`${process.env.REACT_APP_BASE_URL}/api/cars/purchase/`+car._id, car,{
       withCredentials: true
     }).then((resp) => {
       console.log('purchase success');
@@ -98,7 +98,7 @@ const Details = (props) => {
     setFav(newFav);
     user.favorites = newFav;
     setUser(user);
-    Axios.put('/api/user', {...user, favorites:newFav},{
+    Axios.put(`${process.env.REACT_APP_BASE_URL}/api/user`, {...user, favorites:newFav},{
       withCredentials: true
     }).then((resp) => {
       console.log("favorite updated");

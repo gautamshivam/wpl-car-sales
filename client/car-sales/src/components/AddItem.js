@@ -15,7 +15,7 @@ const AddItem = () => {
         }
         
         console.log(images);
-        axios.post('/api/cars/add', {
+        axios.post(`${process.env.REACT_APP_BASE_URL}/api/cars/add`, {
             title:formRef.current.title.value,
             images:images,
             make:formRef.current.make.value,

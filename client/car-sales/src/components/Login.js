@@ -23,7 +23,7 @@ const Login = () => {
     let navigate = useNavigate();
 
     const getUser = () => {
-        Axios.get('/api/user',{
+        Axios.get(`${process.env.REACT_APP_BASE_URL}/api/user`,{
             withCredentials: true
         }).then((res) => {
             setUser(res.data);
@@ -49,7 +49,7 @@ const Login = () => {
             setError("password is empty");
             return;
         }
-        Axios.post('/api/auth/login', {
+        Axios.post(`${process.env.REACT_APP_BASE_URL}/api/auth/login`, {
             username: loginUsername,
             password: loginPassword
         }, {
