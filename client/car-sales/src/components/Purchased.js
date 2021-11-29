@@ -62,7 +62,7 @@ const Purchased = () => {
                   Purchased On:
                 </Typography>
                 <Typography align="left" variant="body1">
-                  {item.purchaseDate.toDateString()}
+                  {new Date(item.purchaseDate).toDateString()}
                 </Typography>
                 
               </CardContent>
