@@ -49,7 +49,7 @@ const Login = () => {
             setError("password is empty");
             return;
         }
-        Axios.post(`${process.env.REACT_APP_BASE_URL}/api/auth/login`, {
+        Axios.post(`/api/auth/login`, {
             username: loginUsername,
             password: loginPassword
         }, {
