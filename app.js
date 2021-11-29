@@ -17,11 +17,22 @@ const userRouter = require('./routes/user');
 
 var app = express();
 
-var corsOptions = {
-    origin: 'https://agile-brook-17309.herokuapp.com',
-    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// var corsOptions = {
+//     origin: 'https://agile-brook-17309.herokuapp.com',
+//     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
+let whitelist = ['https://agile-brook-17309.herokuapp.com'];
+let corsOptions = {
+    origin: (origin, callback)=>{
+        if (whitelist.indexOf(origin) !== -1) {
+            callback(null, true)
+        } else {
+            callback(new Error('Not allowed by CORS'))
+        }
+    },credentials: true
 }
 app.use(cors(corsOptions))
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
