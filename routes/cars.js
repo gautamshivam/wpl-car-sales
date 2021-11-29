@@ -10,10 +10,6 @@ router.get('/', (req, res, next) => {
        res.json(data);
    });
 });
-router.get('/dummy', (req, res, next) => {
-    res.json({"data":"hello"});
-});
-
 
 router.put('/purchase/:id', (req, res, next) => {
     collection.update({_id:req.params.id}, {$set: req.body}, (err, upadatedCars) => {
