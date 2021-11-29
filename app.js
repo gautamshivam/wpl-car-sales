@@ -17,7 +17,11 @@ const userRouter = require('./routes/user');
 
 var app = express();
 
-app.use(cors())
+var corsOptions = {
+    origin: 'https://stark-peak-39857.herokuapp.com',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+app.use(cors(corsOptions))
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
