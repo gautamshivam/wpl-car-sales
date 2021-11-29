@@ -20,9 +20,6 @@ var app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.get('*',(req, res) => {
-    res.send("hello there");
-});
 
 app.use(session({
     secret: "secretcode",
