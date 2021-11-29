@@ -88,29 +88,32 @@ const Cars = (props) => {
               </div>
             ))}
           </div>
-          <div className="row my-5 justify-content-center align-items-center">
-            <div className="col-md-2">
-              <Button variant='contained' 
-              onClick={prevPage} 
-              startIcon={<ChevronLeftRoundedIcon/>}
-              disabled={currPage===1}>
-                Prev Page
-              </Button>
+          {
+            Math.ceil(props.cars.length/pageSize) > 0 &&
+            <div className="row my-5 justify-content-center align-items-center">
+              <div className="col-md-2">
+                <Button variant='contained' 
+                onClick={prevPage} 
+                startIcon={<ChevronLeftRoundedIcon/>}
+                disabled={currPage===1}>
+                  Prev Page
+                </Button>
+              </div>
+              <div className="col-md-2">
+                <Typography fontWeight='bold'>
+                  Page {currPage} / {Math.ceil(props.cars.length / pageSize)}
+                </Typography>
+              </div>
+              <div className="col-md-2">
+                <Button variant='contained' 
+                onClick={nextPage} 
+                endIcon={<ChevronRightRoundedIcon/>}
+                disabled={currPage === Math.ceil(props.cars.length/pageSize)}>
+                  Next Page
+                </Button>
+              </div>
             </div>
-            <div className="col-md-2">
-              <Typography fontWeight='bold'>
-                Page {currPage} / {Math.ceil(props.cars.length / pageSize)}
-              </Typography>
-            </div>
-            <div className="col-md-2">
-              <Button variant='contained' 
-              onClick={nextPage} 
-              endIcon={<ChevronRightRoundedIcon/>}
-              disabled={currPage === Math.ceil(props.cars.length/pageSize)}>
-                Next Page
-              </Button>
-            </div>
-          </div>
+          }
         </div>
         <div className="col-md-2"></div>
       </div>
