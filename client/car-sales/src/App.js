@@ -32,7 +32,7 @@ function App() {
   const [purchaseUpdate, setpurchaseUpdate] = useState(purchases)
 
   const getCars = () => {
-    fetch(`${process.env.SERVER_API}/api/cars`).then((res) => res.json())
+    fetch(`${process.env.SERVER_API_PROXY}/api/cars`).then((res) => res.json())
     .then((data) => {
       console.log(data);
       setCars(data);
