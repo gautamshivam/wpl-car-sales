@@ -18,7 +18,7 @@ const userRouter = require('./routes/user');
 var app = express();
 
 var corsOptions = {
-    origin: 'https://stark-peak-39857.herokuapp.com',
+    origin: 'https://agile-brook-17309.herokuapp.com',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 app.use(cors(corsOptions))
