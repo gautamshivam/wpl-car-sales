@@ -23,7 +23,7 @@ const Login = () => {
     let navigate = useNavigate();
 
     const getUser = () => {
-        fetch(`${process.env.REACT_APP_BASE_URL}/api/user`,{
+        fetch(`/api/user`,{
             withCredentials: true
         }).then((res) => {
             setUser(res.data);

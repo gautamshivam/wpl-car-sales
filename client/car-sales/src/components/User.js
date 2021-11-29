@@ -7,7 +7,7 @@ const User = () => {
     const {user, setUser, fav, setFav} = useContext(UserContext);
 
     const getUser = () => {
-        Axios.get(`${process.env.REACT_APP_BASE_URL}/api/user`,{
+        Axios.get(`/api/user`,{
             withCredentials: true
         }).then((res) => {
             setUser(res.data);

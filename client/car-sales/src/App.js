@@ -32,7 +32,7 @@ function App() {
   const [purchaseUpdate, setpurchaseUpdate] = useState(purchases)
 
   const getCars = () => {
-    fetch(`${process.env.REACT_APP_BASE_URL}/api/cars`).then((res) => res.json())
+    fetch(`/api/cars`).then((res) => res.json())
     .then((data) => {
       console.log(data);
       setCars(data);

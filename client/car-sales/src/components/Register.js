@@ -24,7 +24,7 @@ const Register = () => {
         setMsg("")
     }
     const register = () => {
-        Axios.post(`${process.env.REACT_APP_BASE_URL}/api/auth/register`, {
+        Axios.post(`/api/auth/register`, {
             username: registerUsername,
             password: registerPassword
         }, {

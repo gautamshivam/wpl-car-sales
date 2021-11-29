@@ -16,7 +16,7 @@ const EditItem = (props) => {
         if(images.length === 0) images = props.car.images;
         
         console.log(images);
-        axios.put(`${process.env.REACT_APP_BASE_URL}/api/cars/edit/`+props.car._id, {
+        axios.put(`/api/cars/edit/`+props.car._id, {
             title:formRef.current.title.value,
             images:images,
             make:formRef.current.make.value,

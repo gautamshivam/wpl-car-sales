@@ -61,7 +61,7 @@ const CarItem = (props) => {
     setFav(newFav);
     user.favorites = newFav;
     setUser(user);
-    Axios.put(`${process.env.REACT_APP_BASE_URL}/api/user`, {...user, favorites:newFav},{
+    Axios.put(`/api/user`, {...user, favorites:newFav},{
       withCredentials: true
     }).then((resp) => {
       console.log("favorite updated");

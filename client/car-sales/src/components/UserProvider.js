@@ -10,7 +10,7 @@ const UserProvider = ({children}) => {
     const value = {user, setUser, fav, setFav, purchases, setPurchases}
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_BASE_URL}/api/user`).then((res) => res.json())
+        fetch(`/api/user`).then((res) => res.json())
         .then((data) => {
             console.log(data);
             if(data.favorites === "" || data.favorites === undefined)data.favorites = [];

@@ -65,7 +65,7 @@ const Details = (props) => {
     setUser(user);
 
     let car = props.car;
-    Axios.put(`${process.env.REACT_APP_BASE_URL}/api/cars/purchase/`+car._id, car,{
+    Axios.put(`/api/cars/purchase/`+car._id, car,{
       withCredentials: true
     }).then((resp) => {
       console.log('purchase success');
