@@ -85,7 +85,7 @@ const Navbar = () => {
                         </li> :
                         <>
                             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
-                                <Typography sx={{ minWidth: 100, color:'white', fontWeight:'bold' }}>Hi {user.username[0].toUpperCase() + user.username.slice(1)}</Typography>
+                                <Typography sx={{ minWidth: 100, color:'white', fontWeight:'bold' }}>Hi {user.username.split('@')[0][0].toUpperCase() + user.username.split('@')[0].slice(1)}</Typography>
                                 <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
                                     <Avatar sx={{ width: 32, height: 32 }}>{user.username.charAt(0).toUpperCase()}</Avatar>
                                 </IconButton>
@@ -142,7 +142,8 @@ const Navbar = () => {
                                 </MenuItem>
                                 <Divider />
                                 {
-                                    user.username.toLowerCase() === 'shivam' &&
+                                    (user.username.toLowerCase() === 'shivam@gmail.com' ||  
+                                    user.username.toLowerCase() === 'sourabh@gmail.com') &&
                                     <MenuItem onClick={navigateToAdd}>
                                         <AddCircleIcon/> Add Car
                                     </MenuItem>
