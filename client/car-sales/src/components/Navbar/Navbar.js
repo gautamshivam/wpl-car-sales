@@ -73,8 +73,9 @@ const Navbar = () => {
                            Browse
                         </Link>
                     </li>
-                    <li className="mt-3" style={{marginLeft:'150px', marginRight:'150px'}}>
+                    <li className="" style={{marginLeft:'150px', marginRight:'150px'}}>
                         <ElectricCarIcon style={{color:'#FFFFFF', fontSize:'40px'}} onClick={navigateToHome}/>
+                        <p style={{color:'#FFFFFF',fontWeight:'bold'}}>CAR BAZAAR</p>
                     </li>
                     {
                         user == null || user.username === undefined ?

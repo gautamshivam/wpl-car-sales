@@ -38,6 +38,32 @@ const EditItem = (props) => {
             navigate('/browse');
         })
     }
+    const handleDelete =() =>{
+        let images=[] ;
+        images = props.car.images;
+        
+        axios.put(`/api/cars/edit/`+props.car._id, {
+            title:formRef.current.title.value,
+            images:images,
+            make:formRef.current.make.value,
+            model:formRef.current.model.value,
+            price:formRef.current.price.value,
+            condition:formRef.current.condition.value,
+            mileage:formRef.current.mileage.value,
+            bodyType:formRef.current.bodyType.value,
+            transmission:formRef.current.transmission.value,
+            year:formRef.current.year.value,
+            colorExt:formRef.current.colorExt.value,
+            colorInt:formRef.current.colorInt.value,
+            fuelType:formRef.current.fuelType.value,
+            noOfOwners:formRef.current.noOfOwners.value,
+            features:formRef.current.features.value,
+            isAvailable:false
+        }).then((res) => {
+            console.log('deleted car', res);
+            navigate('/browse');
+        })
+    }
     useEffect(() => {
         formRef.current.title.value = props.car.title;
         formRef.current.make.value = props.car.make;
@@ -80,7 +106,7 @@ const EditItem = (props) => {
             <button type="button" onClick={handleSubmit} className="btn btn-info">
                 Update
             </button>
-            <button type="button" className="btn btn-warning m-1">
+            <button type="button" onClick={handleDelete} className="btn btn-warning m-1">
                 Delete
             </button>
             </form>

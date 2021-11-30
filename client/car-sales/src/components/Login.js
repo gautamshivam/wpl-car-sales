@@ -69,6 +69,7 @@ const Login = () => {
             <div class="form">
                 <Typography marginTop='25px' marginBottom='50px'>
                     <ElectricCarIcon style={{color:'#4CAF50', fontSize:'80px'}}/>
+                    <p style={{color:'#4CAF50',fontWeight:'bold'}}>CAR BAZAAR</p>
                 </Typography>
                 <form class="login-form" onChange={onInputChange}>
                     <input type="text" name="username" class="form-control" placeholder="username" required={true} onChange={e => setLogingUsername(e.target.value)}/>
