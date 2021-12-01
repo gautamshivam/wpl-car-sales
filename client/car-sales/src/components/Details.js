@@ -24,25 +24,22 @@ import Paper from '@mui/material/Paper';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import TextField from '@mui/material/TextField';
+import PaymentDetails from "./PaymentDetails";
 
 
 const Details = (props) => {
   const {user, setUser, purchases, setPurchases,  fav, setFav} = useContext(UserContext);
   const [isFavorite, setIsFavorite] = useState(false);
-  const [shippingAddr, setShippingAddr] = useState("");
-  const [shippingErr, setShippingErr] = useState(false);
-  const [shippingHelper, setShippingHelper] = useState("");
   const [isPurchased, setIsPurchased] = useState(false)
+  const [isBuyNow, setIsBuyNow] = useState(false)
   let navigate = useNavigate();
 
-  const onPurchase = () => {
+  const onPurchase = (paymentInfo) => {
     if(user.username == "" || user.username == undefined) {
       navigate('/login');
       return;
     }
-    if(shippingAddr === ""){
-      setShippingHelper("Shipping address can't be empty");
-      setShippingErr(true);
+    if(paymentInfo.address === ""){
       return;
     }
     const alreadyPurchased = purchases.find((item) => {
@@ -51,7 +48,7 @@ const Details = (props) => {
     var newPurchases;
     if(alreadyPurchased == null) {
       props.car.isAvailable = false;
-      props.car.shippingAddr = shippingAddr;
+      props.car.paymentInfo = paymentInfo;
       props.car.purchaseDate = new Date();
       newPurchases = [props.car, ...purchases]
       console.log("currently not purchased -> making purchase");
@@ -105,10 +102,12 @@ const Details = (props) => {
     }).catch((err) => {console.log(err)});
   }
 
-  const newShippingAddr = (e) => {
-    setShippingErr(false);
-    setShippingHelper("");
-    setShippingAddr(e.target.value);
+  const clickBuyNow = () => {
+    setIsBuyNow(true);
+  }
+
+  const onCancelBuy = () => {
+    setIsBuyNow(false)
   }
 
   return (
@@ -123,19 +122,12 @@ const Details = (props) => {
             <Card variant='outlined'>
               <CardContent>    
                 <div className="col-md-12">
-                  <TextField fullWidth id="standard-basic" 
-                  label="Shipping Address" 
-                  variant="standard" 
-                  value={shippingAddr}
-                  error={shippingErr}
-                  helperText={shippingHelper}
-                  onChange={newShippingAddr} required="true" />
-                  <Typography marginTop="25px">
-                    {
-                      !isPurchased && props.car.isAvailable && 
-                      <Button size="medium" variant="contained" onClick={onPurchase} startIcon={<ShoppingCartIcon/>}>Buy Now</Button>
-                    }
-                  </Typography>
+                  {
+                    isBuyNow ? <PaymentDetails onCancel={onCancelBuy} onBuy={onPurchase}/> : 
+                    <Typography>
+                      <Button size="medium" variant="contained" onClick={clickBuyNow} startIcon={<ShoppingCartIcon/>}>Buy Now</Button>
+                    </Typography>
+                  }
                 </div>
               </CardContent>
           </Card>

@@ -56,7 +56,7 @@ const Purchased = () => {
                   Shipping Address:
                 </Typography>
                 <Typography align="left" variant="body1">
-                  {item.shippingAddr}
+                  {item.paymentInfo.address}
                 </Typography>
                 <Typography align="left" variant="body1" fontWeight="bold">
                   Purchased On:
