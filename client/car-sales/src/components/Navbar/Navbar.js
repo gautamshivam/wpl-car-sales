@@ -75,7 +75,7 @@ const Navbar = () => {
                     </li>
                     <li className="" style={{marginLeft:'150px', marginRight:'150px'}}>
                         <ElectricCarIcon style={{color:'#FFFFFF', fontSize:'40px'}} onClick={navigateToHome}/>
-                        <p style={{color:'#FFFFFF',fontWeight:'bold'}}>CAR BAZAAR</p>
+                        <p style={{color:'#FFFFFF',fontWeight:'bold',fontSize:'15px'}}>CAR BAZAAR</p>
                     </li>
                     {
                         user == null || user.username === undefined ?

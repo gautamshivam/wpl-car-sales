@@ -15,6 +15,13 @@ import Chip from '@mui/material/Chip';
 
 import './CarItem.css';
 
+const styles = 
+{
+media: {
+  height: "300px",
+  padding: "0px"
+}
+};
 
 const CarItem = (props) => {
   const {user, setUser, fav, setFav} = useContext(UserContext);
@@ -85,8 +92,8 @@ const CarItem = (props) => {
     <Card className="carAction">
       <CardMedia
         component="img"
+        style={styles.media}
         alt="car"
-        height="100%"
         image={`./images/${props.car.images[0]}`}
         onClick={onCarClick}
       />

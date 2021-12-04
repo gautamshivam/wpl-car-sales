@@ -200,27 +200,6 @@ const Details = (props) => {
                 <TableRow
                     sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
                     <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
-                      Body
-                    </TableCell>
-                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.bodyType}</TableCell>
-                </TableRow>
-                <TableRow
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
-                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
-                      Condition
-                    </TableCell>
-                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.condition}</TableCell>
-                </TableRow>
-                <TableRow
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
-                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
-                      Transmission
-                    </TableCell>
-                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.transmission}</TableCell>
-                </TableRow>
-                <TableRow
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
-                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
                       Model
                     </TableCell>
                     <TableCell align="left" style={{fontSize:'18px'}}>{props.car.model}</TableCell>
@@ -238,6 +217,41 @@ const Details = (props) => {
                       Mileage
                     </TableCell>
                     <TableCell align="left" style={{fontSize:'18px'}}>{props.car.mileage} mi.</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Body Type
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.bodyType}</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Condition
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.condition}</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Color Exterior
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.colorExt}</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Color Interior
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.colorInt}</TableCell>
+                </TableRow>
+                <TableRow
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
+                    <TableCell align="right" component="th" scope="row" style={{fontWeight:'bold', backgroundColor:'lightgreen', fontSize:'18px'}}>
+                      Transmission
+                    </TableCell>
+                    <TableCell align="left" style={{fontSize:'18px'}}>{props.car.transmission}</TableCell>
                 </TableRow>
                 <TableRow
                     sx={{ '&:last-child td, &:last-child th': { border: 0 }}}>
