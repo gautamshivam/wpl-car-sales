@@ -20,7 +20,7 @@ function App() {
   const [filteredCars, setFilteredCars] = useState([]);
   const [unSortedCars, setUnSortedCars] = useState([]);
   const [filters, setFilters] = useState({makeList:[], bodyTypeList:[], fuelTypeList:[]});
-  const [lastAppliedFilters, setLastAppliedFilters] = useState({makeList:[], bodyTypeList:[], fuelTypeList:[]});
+  const [lastAppliedFilters, setLastAppliedFilters] = useState({make:"", body:"", fuelTypes:[]});
   const [lastQuery, setLastQuery] = useState("");
   const [user, setUser] = useState({});
 
@@ -84,13 +84,14 @@ function App() {
     getUser();
   }
 
-  const onFilterApplied = (filters) => {
-    console.log('filters apply', filters);
-    setLastAppliedFilters(filters);
+  const onFilterApplied = (selctedFilters) => {
+    console.log('filters apply', selctedFilters);
+    setLastAppliedFilters(selctedFilters);
+    
     let filteredList = cars;
-    if(filters.make !== "")filteredList = cars.filter((car) => car.make === filters.make);
-    if(filters.body !== "")filteredList = filteredList.filter((car) => car.bodyType === filters.body);
-    if(filters.fuelTypes.length > 0)filteredList = filteredList.filter((car) => filters.fuelTypes.includes(car.fuelType));
+    if(selctedFilters.make != "")filteredList = cars.filter((car) => car.make === selctedFilters.make);
+    if(selctedFilters.body != "")filteredList = filteredList.filter((car) => car.bodyType === selctedFilters.body);
+    if(Array.isArray(selctedFilters.fuelTypes) && selctedFilters.fuelTypes.length > 0)filteredList = filteredList.filter((car) => selctedFilters.fuelTypes.includes(car.fuelType));
     if(lastQuery !== "")filteredList = filteredList.filter((car) => car.title.toLowerCase().includes(lastQuery.toLowerCase()));
     setFilteredCars(filteredList);
     return filteredList;
@@ -126,6 +127,7 @@ function App() {
     let filteredList = onFilterApplied(lastAppliedFilters);
     filteredList = filteredList.filter((car) => car.title.toLowerCase().includes(query.toLowerCase()));
     setFilteredCars(filteredList)
+    console.log(filteredList)
     return filteredList;
   }
 
@@ -134,6 +136,10 @@ function App() {
   }
 
 
+  const onUpdated = () => {
+    getCars();
+  }
+  
   return (
     <div className="App">
     <Navbar/>
@@ -169,7 +175,7 @@ function App() {
       <Route path="/favourites" element={<Favourites onCarClick={onCarClick} isFavUpdated={isFavUpdated}/>} exact></Route>
       <Route path="/purchases" element={<Purchased/>} exact></Route>
       <Route path="/additem" element={<AddItem/>} exact></Route>
-      <Route path="/edititem" element={<EditItem car={clickedCar}/>} exact></Route>
+      <Route path="/edititem" element={<EditItem car={clickedCar} onUpdated={onUpdated}/>} exact></Route>
     </Routes>
 </div>
   );

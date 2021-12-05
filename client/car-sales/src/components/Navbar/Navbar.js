@@ -143,8 +143,7 @@ const Navbar = () => {
                                 </MenuItem>
                                 <Divider />
                                 {
-                                    (user.username.toLowerCase() === 'shivam@gmail.com' ||  
-                                    user.username.toLowerCase() === 'sourabh@gmail.com') &&
+                                    (user.username.toLowerCase() === 'admin@gmail.com') &&
                                     <MenuItem onClick={navigateToAdd}>
                                         <AddCircleIcon/> Add Car
                                     </MenuItem>

@@ -47,10 +47,11 @@ const Register = () => {
             <div class="form">
                 <Typography marginTop='25px' marginBottom='50px'>
                     <ElectricCarIcon style={{color:'#4CAF50', fontSize:'80px'}}/>
+                    <p style={{color:'#4CAF50',fontWeight:'bold',fontSize:'20px'}}>CAR BAZAAR</p>
                 </Typography>
                 <form class="Register-form" onChange={onFormChange}>
                     <input type="text"  class="form-control" placeholder="username" onChange={e => setRegisterUsername(e.target.value)}/>
-                    <input type="text"  class="form-control" placeholder="password" onChange={e => setRegisterPassword(e.target.value)}/>
+                    <input type="password"  class="form-control" placeholder="password" onChange={e => setRegisterPassword(e.target.value)}/>
                     <Button onClick={register} 
                     type="button" variant='contained' 
                     startIcon={<PersonAddAltIcon/>}

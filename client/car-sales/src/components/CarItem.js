@@ -126,7 +126,7 @@ const CarItem = (props) => {
           </Button>
         }
         {
-          user && user.username === 'shivam@gmail.com' && 
+          user && user.username === 'admin@gmail.com' && 
           <Button aria-label="edit this car" variant='contained' onClick={onCardEditClick}>
             <EditIcon color="inherit" />
           </Button>
