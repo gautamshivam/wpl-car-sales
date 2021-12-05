@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import {Button,Typography, TextField}from "@mui/material"
 
-const AddItem = () => {
+const AddItem = (props) => {
 
     const formRef = React.createRef();
     let navigate = useNavigate();
@@ -88,8 +88,8 @@ const AddItem = () => {
             bodyType:bodyType,
             transmission:transmission,
             year:year,
-            colorint:colorInt,
-            colorext:colorExt,
+            colorin:colorInt,
+            colorex:colorExt,
             fuelType:fuelType,
             noOfOwners:noOfOwners,
             features:features,
@@ -97,6 +97,7 @@ const AddItem = () => {
 
         }).then((res) => {
             console.log('added car');
+            props.onAdded();
             navigate('/browse');
         })
     }

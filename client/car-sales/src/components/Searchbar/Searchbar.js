@@ -1,24 +1,27 @@
 
 import './Searchbar.css'
 import Button from '@mui/material/Button';
-import React from 'react';
+import React, {useState} from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 
 const SearchBar = (props) => {
+    const [query, setquery] = useState("")
     const ref = React.createRef();
     const onSortApplied = (e) => {
       console.log(e.target.value);
       props.onSortApplied(e.target.value)
     }
     const onQuery = (e) => {
-      props.onQuery(ref.current.value);
+      console.log(e.target.value);
+      setquery(e.target.value)
+      props.onQuery(e.target.value);
     }
     return(
         <form class="pt-3">
           <div class="row justify-content-center align-items-sm-center">
             <div className="col-md-8">
               <div class="form-control">
-                <input className="w-100 no-outline" id="search" type="text" ref={ref} placeholder="Search for cars" />
+                <input className="w-100 no-outline" id="search" type="text" ref={ref} placeholder="Search for cars" onChange={onQuery} value={query} />
               </div>
             </div>
             <div className="col-md-2">

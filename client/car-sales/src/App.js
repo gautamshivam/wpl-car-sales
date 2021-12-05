@@ -84,7 +84,7 @@ function App() {
     getUser();
   }
 
-  const onFilterApplied = (selctedFilters) => {
+  const onFilterApplied = (selctedFilters, isQuery) => {
     console.log('filters apply', selctedFilters);
     setLastAppliedFilters(selctedFilters);
     
@@ -92,12 +92,13 @@ function App() {
     if(selctedFilters.make != "")filteredList = cars.filter((car) => car.make === selctedFilters.make);
     if(selctedFilters.body != "")filteredList = filteredList.filter((car) => car.bodyType === selctedFilters.body);
     if(Array.isArray(selctedFilters.fuelTypes) && selctedFilters.fuelTypes.length > 0)filteredList = filteredList.filter((car) => selctedFilters.fuelTypes.includes(car.fuelType));
-    if(lastQuery !== "")filteredList = filteredList.filter((car) => car.title.toLowerCase().includes(lastQuery.toLowerCase()));
+    if(isQuery)filteredList = filteredList.filter((car) => car.title.toLowerCase().includes(lastQuery.toLowerCase()));
     setFilteredCars(filteredList);
     return filteredList;
   }
   const onClearFilter = () => {
     setFilteredCars(cars);
+    setLastAppliedFilters({make:"", body:"", fuelTypes:[]})
   }
 
   const onSortApplied = (type) => {
@@ -124,7 +125,7 @@ function App() {
   const onQuery = (query) => {
     console.log('search by title:',query);
     setLastQuery(query);
-    let filteredList = onFilterApplied(lastAppliedFilters);
+    let filteredList = onFilterApplied(lastAppliedFilters, false);
     filteredList = filteredList.filter((car) => car.title.toLowerCase().includes(query.toLowerCase()));
     setFilteredCars(filteredList)
     console.log(filteredList)
@@ -140,6 +141,10 @@ function App() {
     getCars();
   }
   
+  const onAdded = () => {
+    getCars();
+  }
+
   return (
     <div className="App">
     <Navbar/>
@@ -174,7 +179,7 @@ function App() {
       <Route path="/details" element={<Details car={clickedCar} isFav={clickedCarFav} onPurchase={onPurchase}/>} exact></Route>              
       <Route path="/favourites" element={<Favourites onCarClick={onCarClick} isFavUpdated={isFavUpdated}/>} exact></Route>
       <Route path="/purchases" element={<Purchased/>} exact></Route>
-      <Route path="/additem" element={<AddItem/>} exact></Route>
+      <Route path="/additem" element={<AddItem  onAdded={onAdded}/>} exact></Route>
       <Route path="/edititem" element={<EditItem car={clickedCar} onUpdated={onUpdated}/>} exact></Route>
     </Routes>
 </div>

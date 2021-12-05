@@ -107,7 +107,7 @@ const PaymentDetails = (props) => {
         phone === "" ||
         addr === "" ||
         paymentType === "") {
-            alert("invalid form");
+            alert("Kindly add required payment fields");
             return;
         }
         props.onBuy({
@@ -159,7 +159,7 @@ const PaymentDetails = (props) => {
                   onChange={onCardChange} required="true" />
                 <TextField  id="standard-basic" 
                     label="Expiry" 
-                    style={{marginTop:"20px", marginRight:"20px"}}
+                    style={{marginTop:"20px", marginRight:"5px"}}
                     value={exp}
                     helperText={expHelper}
                     error={expError}

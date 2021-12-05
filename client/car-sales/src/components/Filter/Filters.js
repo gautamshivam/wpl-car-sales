@@ -33,7 +33,7 @@ const Filters = (props) => {
   };
 
   const applyFilters = () => {
-    props.onFilterApplied({make:selectedMake, body:selectedBody, fuelTypes:selectedFuelTypes});
+    props.onFilterApplied({make:selectedMake, body:selectedBody, fuelTypes:selectedFuelTypes}, true);
   }
   const onClearFilter = () => {
     props.onClearFilter();
